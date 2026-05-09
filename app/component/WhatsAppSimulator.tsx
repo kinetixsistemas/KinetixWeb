@@ -251,7 +251,22 @@ const WhatsAppSimulator = () => {
                 </div>
 
                 {/* Input Bar */}
-                <div className="p-2 flex items-center gap-2" style={{ background: "#F0F0F0" }}>
+                <div className="p-2 flex items-center gap-2 relative z-20" style={{ background: "#F0F0F0" }}>
+                  {userMessageCount === 0 && inputValue.length === 0 && (
+                    <div 
+                      className="absolute -top-14 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[11px] font-medium px-4 py-2.5 rounded-full shadow-[0_8px_24px_rgba(0,0,0,0.2)] animate-bounce flex items-center gap-2 pointer-events-none whitespace-nowrap border border-white/10"
+                      style={{ animationDuration: '2.5s' }}
+                    >
+                      <span className="flex h-2 w-2 relative">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#25D366]"></span>
+                      </span>
+                      ¡Escribe un mensaje para probar la IA!
+                      {/* Triangle pointer pointing down */}
+                      <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-gray-900 border-b border-r border-white/10 rotate-45"></div>
+                    </div>
+                  )}
+                  
                   <span className="material-symbols-outlined text-gray-500 text-[20px] cursor-pointer">add_circle</span>
                   <input
                     type="text"
@@ -265,7 +280,7 @@ const WhatsAppSimulator = () => {
                   <button 
                     onClick={handleSendMessage}
                     disabled={!inputValue.trim() || isLoading || userMessageCount >= MAX_MESSAGES}
-                    className="w-9 h-9 flex items-center justify-center rounded-full disabled:opacity-50 transition-opacity cursor-pointer flex-shrink-0" 
+                    className="w-9 h-9 flex items-center justify-center rounded-full disabled:opacity-50 transition-opacity cursor-pointer flex-shrink-0 shadow-sm" 
                     style={{ background: "#25D366" }}
                   >
                     <span className="material-symbols-outlined text-white text-[16px] ml-1">send</span>
