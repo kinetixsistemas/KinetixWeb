@@ -2,6 +2,7 @@ import React from "react";
 import BentoCard from "./component/BentoCard";
 import WhatsAppSimulator from "./component/WhatsAppSimulator";
 import Link from "next/link";
+import { WHATSAPP_LINK } from "./constants/number";
 
 const coreServices = [
   {
@@ -364,7 +365,7 @@ export default function Home() {
             />
 
             <div className="relative z-10">
-              <p className="section-overline mb-4">¿Listo para comenzar?</p>
+              <p className="section-overline mb-4 text-xl">¿Listo para comenzar?</p>
               <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-6 max-w-2xl mx-auto">
                 Escala tu infraestructura digital hoy
               </h2>
@@ -373,7 +374,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <a
-                  href="https://wa.me/584241234567"
+                  href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-emerald text-base"
@@ -393,7 +394,7 @@ export default function Home() {
 
       {/* Floating WhatsApp */}
       <a
-        href="https://wa.me/584241234567"
+        href={WHATSAPP_LINK}
         target="_blank"
         rel="noopener noreferrer"
         id="whatsapp-fab"

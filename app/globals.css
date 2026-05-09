@@ -27,7 +27,7 @@
   --surface: #ffffff;
   --surface-muted: #f0eff4;
   --surface-border: #e2e0eb;
-  --surface-border-dark: rgba(255,255,255,0.08);
+  --surface-border-dark: rgba(255, 255, 255, 0.08);
 
   /* ---- Text Colors ---- */
   --text-primary: #0d0f14;
@@ -36,10 +36,10 @@
   --text-inverted: #ffffff;
 
   /* ---- Shadows ---- */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
-  --shadow-lg: 0 12px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06);
-  --shadow-xl: 0 24px 64px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.08);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.15), 0 8px 24px rgba(0, 0, 0, 0.08);
   --shadow-emerald: 0 8px 32px rgba(0, 199, 143, 0.2);
   --shadow-primary: 0 8px 32px rgba(0, 67, 143, 0.25);
 
@@ -97,7 +97,9 @@
 /* ========================================================
    BASE STYLES
    ======================================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -123,7 +125,9 @@ body {
   letter-spacing: -0.02em;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: 'Space Grotesk', 'Inter', sans-serif;
   letter-spacing: -0.02em;
 }
@@ -231,13 +235,13 @@ h1, h2, h3 {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     cursor: pointer;
-    border: 2px solid rgba(255,255,255,0.4);
+    border: 2px solid rgba(255, 255, 255, 0.4);
     transition: all var(--transition-base);
   }
 
   .btn-ghost-white:hover {
-    background: rgba(255,255,255,0.12);
-    border-color: rgba(255,255,255,0.7);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.7);
     transform: translateY(-2px);
   }
 
@@ -258,7 +262,7 @@ h1, h2, h3 {
 
   .card-dark {
     background: var(--bg-dark-card);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     transition: all var(--transition-base);
@@ -283,7 +287,7 @@ h1, h2, h3 {
     background: rgba(13, 15, 20, 0.6);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-lg);
   }
 
@@ -387,9 +391,11 @@ h1, h2, h3 {
     width: 6px;
     height: 6px;
   }
+
   ::-webkit-scrollbar-track {
     background: var(--surface-muted);
   }
+
   ::-webkit-scrollbar-thumb {
     background: var(--emerald);
     border-radius: 3px;
@@ -407,19 +413,42 @@ h1, h2, h3 {
 
   /* ---- Animate ---- */
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
   @keyframes shimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
+    0% {
+      background-position: -200% center;
+    }
+
+    100% {
+      background-position: 200% center;
+    }
   }
 
   @keyframes pulse-ring {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 199, 143, 0.4); }
-    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 199, 143, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 199, 143, 0); }
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(0, 199, 143, 0.4);
+    }
+
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(0, 199, 143, 0);
+    }
+
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(0, 199, 143, 0);
+    }
   }
 
   .animate-float {
