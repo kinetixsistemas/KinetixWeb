@@ -1,97 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import ProjectCard from '@/app/component/ProjectCard';
+import { bannerportafolio } from '@/app/assets/index';
+import { projects } from '@/app/constants/projects';
 
-export interface Project {
-    title: string;
-    description: string;
-    category: string;
-    image: string;
-    link: string;
-    span: string;
-    tags?: string[];
-}
 
-const projects: Project[] = [
-    {
-        title: "Plataforma de E-commerce Pro",
-        description: "Implementación de un ecosistema de ventas escalable con integración de pasarelas de pago globales y gestión de inventario en tiempo real.",
-        category: "E-commerce",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDReePHOetEzvvMlX4XU6YftbHO6p5G3WDOW1DM_HdgBot6LhlhmZlr0VIjB18G1rLodcwh-uav8WiKFNYTXPuT660XrxLRTvAM9ubUYpM4JcieNcVjORNu9BsSX5fpYPTxTNDn4ooVorFVNbXMivf8JIksFHQgTP0RBxWE9o3t4MGyAJM7levFwQcRziWTI9dphVCMvGGUtsWTXpXW7WciExLqRn--64rsuHec7nWpj-O73-7KQdktP5_rPNjnY6AS4cgtDndb9IWk",
-        link: "/portfolio/ecommerce",
-        span: "md:col-span-8",
-        tags: ["Next.js", "Stripe", "PostgreSQL"],
-    },
-    {
-        title: "Automatización de Flujos",
-        description: "Orquestación de procesos complejos para logística internacional utilizando n8n y modelos de IA para predicción de rutas.",
-        category: "Logistics (n8n)",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDnxArVbKkgNcPfg0TqtOuq2jHkGymZzdmOO5kpO0bdO98CbSNYimvSh8cVsnZNc9z-vjR7OHLH2IHeF6m-Vy9kKS4gGOmcfXnSKSCTbtTh42ay5ijEuHThvtNWmrZNDxJI-7rn_r0Agge3fgxhWrOKMbEIruNXIkH7HUdKPTvPXY6FA1z0-BbBFz8x6eco0EvmJMEvTUyHm4tdEhlzjbjoqU7F6uU2HbZPGXNzIh5JbXDp5praPGqPATjwjPWjSAt0JbCQsBfPxZiV",
-        link: "/portfolio/automation",
-        span: "md:col-span-5",
-        tags: ["n8n", "Python", "OpenAI"],
-    },
-    {
-        title: "Interfaz para Servicios",
-        description: "Aplicación móvil nativa diseñada para la gestión ágil de servicios en campo, con sincronización offline y geolocalización avanzada.",
-        category: "Service Provider App",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBV3isX11qOMmk8WvFg00Bz5pKfW1y-EYaRZUFm72wae_iD1NtpbrD4wvBeioWiWEkUUfd6eMt-qlQLZ3eiYlPBmrwgy5qDWxOIf20m9_krt-G6NeEcIwrHyDnhEXuQrjnRpN6Qg5ruWNLT7g7GvPY8j7GJPRs8uSUWDt_G_1wKRPjaGZS2cnxhOlgGqKk41lmqMSCfJcgpQx1tqB3sDhQRqjQqeIwsM6nCiyqE3KrZwTkbZPe_mTewWoCKUoEyxBr8FZPWz0Xy4R_4",
-        link: "/portfolio/mobile-app",
-        span: "md:col-span-7",
-        tags: ["React Native", "Node.js", "MongoDB"],
-    }
-];
 
-function ProjectCard({ project }: { project: Project }) {
-    return (
-        <Link
-            href={project.link}
-            className="group card overflow-hidden flex flex-col h-full block hover:-translate-y-2 hover:shadow-2xl transition-all duration-500"
-        >
-            {/* Image */}
-            <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
-                <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw"
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                {/* Category badge */}
-                <div className="absolute top-4 left-4">
-                    <span
-                        className="text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full"
-                        style={{ background: 'linear-gradient(135deg, var(--primary), #0066cc)' }}
-                    >
-                        {project.category}
-                    </span>
-                </div>
-                {/* Arrow appears on hover */}
-                <div className="absolute bottom-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-2 group-hover:translate-x-0">
-                    <span className="material-symbols-outlined text-white text-[20px]">arrow_forward</span>
-                </div>
-            </div>
-
-            {/* Content */}
-            <div className="p-7 flex-grow flex flex-col">
-                <h3 className="font-display text-xl font-bold text-[var(--text-primary)] mb-3">
-                    {project.title}
-                </h3>
-                <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-5 flex-1">
-                    {project.description}
-                </p>
-                {project.tags && (
-                    <div className="flex flex-wrap gap-2 mt-auto">
-                        {project.tags.map((tag) => (
-                            <span key={tag} className="tech-chip">{tag}</span>
-                        ))}
-                    </div>
-                )}
-            </div>
-        </Link>
-    );
-}
 
 export default function PortfolioPage() {
     return (
@@ -123,8 +37,8 @@ export default function PortfolioPage() {
                 {/* Background texture */}
                 <div className="absolute inset-0 opacity-10 grayscale pointer-events-none">
                     <Image
-                        src="https://lh3.googleusercontent.com/aida/ADBb0ui41qXqRE_HEjhNfIjoNmcPU9zVk8tZyUGshQYjqbpXivJVNv3mjl1jR3aJznAs97VaXxhUVSHBm0y_zK9zgsdZSewPG6-f3Aio4WihTtVg1jBOycEROtJxJ6LQg6FAuzVA-jt7gGkZZd2ABMS60Kcat1l-FMzYTwSN6sLjDTTEq9Bk-6maMk1U31fvsUnJRM-7ZMqwumx9MQ_LsyMLPT0TKWIDTb6gvPVrgQIC7fvvtmDeTd-pstYsb2HXtOt4gCq1O8HYFns399c"
-                        alt=""
+                        src={bannerportafolio}
+                        alt="bannerportafolio"
                         fill
                         className="object-cover"
                         priority

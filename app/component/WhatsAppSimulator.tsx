@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
+import { kinetixLogo } from "../assets";
 
 interface Message {
   id: string;
@@ -136,6 +138,11 @@ const WhatsAppSimulator = () => {
                   desc: "Conversaciones con conciencia de contexto que se sienten humanas y eficientes.",
                 },
                 {
+                  icon: "mic",
+                  title: "Transforma mensajes de Voz en Texto",
+                  desc: "Que los mensajes de voz no detengan tus Ventas. Interpreta mensaje de voz y responde con normalidad.",
+                },
+                {
                   icon: "sync_alt",
                   title: "Integración CRM",
                   desc: "Sincronización automática de datos con tus herramientas de negocio existentes.",
@@ -151,7 +158,7 @@ const WhatsAppSimulator = () => {
                     className="w-10 h-10 flex items-center justify-center rounded-xl flex-shrink-0 transition-colors duration-300 group-hover:bg-[var(--emerald)]"
                     style={{ background: "var(--emerald-light)" }}
                   >
-                    <span className="material-symbols-outlined text-[var(--emerald)] text-[18px] group-hover:text-white transition-colors">
+                    <span className="material-symbols-outlined text-[var(--emerald)] text-[18px] group-hover:text-black transition-colors">
                       {icon}
                     </span>
                   </div>
@@ -177,7 +184,7 @@ const WhatsAppSimulator = () => {
               />
 
               {/* Phone frame */}
-              <div className="w-[300px] h-[620px] rounded-[40px] border-[8px] border-[var(--bg-dark)] bg-[var(--bg-dark)] shadow-2xl relative overflow-hidden flex flex-col"
+              <div className="w-[330px] h-[670px] rounded-[40px] border-[8px] border-[var(--bg-dark)] bg-[var(--bg-dark)] shadow-2xl relative overflow-hidden flex flex-col"
                 style={{ boxShadow: "0 32px 80px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.1)" }}
               >
                 {/* Status bar */}
@@ -192,10 +199,18 @@ const WhatsAppSimulator = () => {
                 {/* WhatsApp Header */}
                 <div className="p-4 flex items-center gap-3" style={{ background: "#075E54" }}>
                   <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center flex-shrink-0">
-                    <span className="material-symbols-outlined text-[#075E54] text-[18px]">smart_toy</span>
+                    <Image
+                      src={kinetixLogo}
+                      alt="Kinetix Sistemas Logo"
+                      width={24}
+                      height={24}
+                      className="rounded-xl transition-transform duration-300 group-hover:scale-105"
+                      priority
+                    />
+                    {/* <span className="material-symbols-outlined text-[#075E54] text-[18px]">smart_toy</span> */}
                   </div>
                   <div className="flex-1">
-                    <div className="text-white font-semibold text-sm">Kinetix AI Agent</div>
+                    <div className="text-white font-semibold text-sm">Kinex Agente IA</div>
                     <div className="text-white/70 text-[10px] flex items-center gap-1">
                       <span className="w-1.5 h-1.5 bg-[var(--emerald)] rounded-full" />
                       en línea

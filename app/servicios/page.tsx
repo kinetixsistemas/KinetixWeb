@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { kinetixbanner } from '../assets/index';
+import { WHATSAPP_LINK } from '../constants/number';
 
 interface ServiceCardProps {
     title: string;
@@ -48,8 +50,8 @@ export default function ServiciosPage() {
                 {/* Background image */}
                 <div className="absolute inset-0 opacity-10 pointer-events-none">
                     <Image
-                        alt=""
-                        src="https://lh3.googleusercontent.com/aida/ADBb0ui41qXqRE_HEjhNfIjoNmcPU9zVk8tZyUGshQYjqbpXivJVNv3mjl1jR3aJznAs97VaXxhUVSHBm0y_zK9zgsdZSewPG6-f3Aio4WihTtVg1jBOycEROtJxJ6LQg6FAuzVA-jt7gGkZZd2ABMS60Kcat1l-FMzYTwSN6sLjDTTEq9Bk-6maMk1U31fvsUnJRM-7ZMqwumx9MQ_LsyMLPT0TKWIDTb6gvPVrgQIC7fvvtmDeTd-pstYsb2HXtOt4gCq1O8HYFns399c"
+                        alt="kinetixbanner"
+                        src={kinetixbanner}
                         fill
                         className="object-cover grayscale"
                         priority
@@ -64,7 +66,7 @@ export default function ServiciosPage() {
                     <div className="max-w-2xl">
                         <p className="section-overline mb-4">Nuestros servicios</p>
                         <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                            Expertise en{' '}
+                            Experiencia en{' '}
                             <span
                                 style={{
                                     background: 'linear-gradient(135deg, var(--emerald) 0%, #00e5a8 100%)',
@@ -78,11 +80,12 @@ export default function ServiciosPage() {
                             & Desarrollo
                         </h1>
                         <p className="text-xl text-white/60 mb-8 leading-relaxed">
-                            Soluciones digitales de precisión diseñadas para la empresa moderna. Escalamos tu negocio con tecnología de vanguardia.
+                            de procesos y soluciones digitales de alta precisión. No solo escribimos código; diseñamos la infraestructura tecnológica que permite a tu empresa escalar sin fricciones.
+                            Transformamos la complejidad técnica en una ventaja competitiva.
                         </p>
                         <div className="flex flex-wrap gap-4">
                             <a
-                                href="https://wa.me/584241234567"
+                                href={WHATSAPP_LINK}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn-emerald"
@@ -102,7 +105,7 @@ export default function ServiciosPage() {
             <section className="py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-14">
-                        <p className="section-overline mb-3">Lo que ofrecemos</p>
+                        <p className="section-overline mb-2 text-[14px]">Lo que ofrecemos</p>
                         <h2 className="font-display text-4xl font-bold text-[var(--text-primary)] mb-3">
                             Servicios Principales
                         </h2>
@@ -122,16 +125,16 @@ export default function ServiciosPage() {
                                         <span className="material-symbols-outlined text-[var(--emerald)] text-[28px]">terminal</span>
                                     </div>
                                     <h3 className="font-display text-2xl font-bold text-[var(--text-primary)] mb-3">
-                                        Desarrollo Web & Apps
+                                        Desarrollo Web & Ecosistemas Digitales
                                     </h3>
                                     <p className="text-[var(--text-secondary)] leading-relaxed mb-6">
-                                        Soluciones a medida construidas con los stacks más avanzados. Enfocados en escalabilidad, rendimiento y seguridad desde la primera línea de código.
+                                        Creamos plataformas escalables, rápidas y seguras con los stacks más avanzados. Diseñadas para convertir visitantes en activos de negocio desde la primera línea de código.
                                     </p>
                                     <ul className="space-y-3">
                                         {[
                                             'Ecosistemas React & Next.js',
                                             'Arquitecturas Cloud de Alto Rendimiento',
-                                            'APIs RESTful & GraphQL',
+                                            'APIs RESTful',
                                         ].map((item) => (
                                             <li key={item} className="flex items-center gap-2.5">
                                                 <span className="material-symbols-outlined text-[var(--emerald)] text-[18px]">check_circle</span>
@@ -140,6 +143,7 @@ export default function ServiciosPage() {
                                         ))}
                                     </ul>
                                 </div>
+
                                 <div className="flex-1 relative hidden lg:block overflow-hidden rounded-xl border border-[var(--surface-border)] min-h-[200px]">
                                     <Image
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqpreei2fkazeGr6Wuf6KOPP7HsmTrlOQd0rDWdwoHgIx71IJfTURk3A3atkWGLwjtuX1QFn2JAuz3CORQjTUk4l59mRqBw4gF4_-v59T1h1EWZjLvteQ3CK3g8EYWcE4mFNmScWbwx3vxG5zpc1qTzRKndfiEkxFAEzgIs1WHTQ7G1pog9O5HdZk6-aFIcwVxWuE2FjkhfU7eF5o9d6ffaNzBMgWzVgLnw0_KeHv5fSkvdrmcmcWa8PBVsANpKRl-DcKnO_1dlmsC"
@@ -156,8 +160,8 @@ export default function ServiciosPage() {
                         <ServiceCard
                             className="md:col-span-4"
                             icon="query_stats"
-                            title="SEO Avanzado"
-                            description="Posicionamiento estratégico para crecimiento sostenible. Optimizamos cada capa técnica y de contenido para maximizar tu visibilidad."
+                            title="Inteligencia de Búsqueda (SEO)"
+                            description="Dominio estratégico para un crecimiento orgánico sostenible. Optimizamos la arquitectura técnica y el contenido semántico para garantizar que tu empresa sea la respuesta a las necesidades de tus clientes."
                         >
                             <div className="mt-auto pt-4 border-t border-[var(--surface-border)]">
                                 <span className="section-overline text-[var(--emerald)]">Drive Traffic</span>
@@ -168,11 +172,12 @@ export default function ServiciosPage() {
                         <ServiceCard
                             className="md:col-span-5"
                             icon="smart_toy"
-                            title="Chatbots con IA"
-                            description="Asistentes virtuales especializados para WhatsApp y Web que aprovechan LLMs para atención al cliente 24/7 con respuestas contextuales."
+                            title="Agentes de IA & Chatbots Conversacionales"
+                            description="Agentes de IA especializados para impulsar tu empresa. Atención al cliente 24/7 con respuestas contextuales y precisas que califican leads en tiempo real."
                         >
                             <div className="flex flex-wrap gap-2">
-                                <span className="badge badge-emerald">GPT-4 Integration</span>
+                                <span className="badge badge-emerald">Groq</span>
+                                <span className="badge badge-emerald">LLMs</span>
                                 <span className="badge badge-emerald">WhatsApp API</span>
                             </div>
                         </ServiceCard>
@@ -186,10 +191,11 @@ export default function ServiciosPage() {
                                 <span className="material-symbols-outlined text-[var(--primary)] text-[28px]">account_tree</span>
                             </div>
                             <h3 className="font-display text-2xl font-bold text-[var(--text-primary)] mb-3">
-                                Automatización con n8n
+                                Orquestación de Procesos con n8n
                             </h3>
                             <p className="text-[var(--text-secondary)] mb-7 leading-relaxed">
-                                Máxima eficiencia en tareas repetitivas a través de orquestaciones de flujos de trabajo complejos sin límites.
+                                Máxima eficiencia operativa mediante flujos de trabajo automatizados que conectan tus herramientas favoritas.
+                                Eliminamos las tareas repetitivas y el error humano, permitiendo que tu equipo se enfoque en lo que realmente genera valor.
                             </p>
                             <div className="grid grid-cols-3 gap-4">
                                 {[
@@ -252,8 +258,8 @@ export default function ServiciosPage() {
                             rel="noopener noreferrer"
                             className="btn-emerald text-base mx-auto"
                         >
-                            <span className="material-symbols-outlined">rocket_launch</span>
-                            Solicitar Cotización Ahora
+                            <span className="material-symbols-outlined">computer</span>
+                            Demo 15 días gratis
                         </a>
                     </div>
                 </div>
