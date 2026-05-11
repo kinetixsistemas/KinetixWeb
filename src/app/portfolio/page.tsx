@@ -30,7 +30,8 @@ export default function PortfolioPage() {
                         backgroundSize: '48px 48px',
                     }}
                 />
-                <div className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+                <div className="absolute topimport Link from 'next/link';
+-0 left-0 right-0 h-px pointer-events-none"
                     style={{ background: 'linear-gradient(90deg, transparent, var(--emerald), transparent)' }}
                 />
 
