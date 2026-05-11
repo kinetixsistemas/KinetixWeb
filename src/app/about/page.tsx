@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { ChevronDown } from 'lucide-react';
+import { WHATSAPP_LINK } from '../constants/number';
 
 export interface Expert {
     name: string;
@@ -31,28 +33,7 @@ function ValueCard({ title, description, icon, className }: ValueCardProps) {
     );
 }
 
-const experts: Expert[] = [
-    {
-        name: "Adrian Velez",
-        role: "CTO & Founder",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAcAtZ5HZYtBEeNwMlsycLPvmEtE40pI0l0z0fNxz975bdF2urD85l93n5-uyJZSIJdGe9VSpIfQ89gHAXwIyJyhn2WNZKJ0PPZeHnIEPKgZx4iiDuYw_Sp090GUEO9Ff1JxuB-z8b2fJJ2AB-9ttT1ChKkjO2nszN1RneMKCAAD6gqKwFQdxPjknJefzQEqUMqd-CeicHOG61G4g0tM86EdKOoZQdEcB-gRgLbFckGyVkXdtzSz65OBM148HOGrOISygHlQGHOtAxN"
-    },
-    {
-        name: "Elena Costa",
-        role: "AI Research Lead",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBrQJjEGCyvDSsHU4r4nMtK3t1P0YVerOIqZ21MWt1Cr32HLeUJcCQp7Yet5kgU8k8dEVM_smFWIuECMamNy1asl4XfA0lkhYjVwIRjWrr_drCb3IsDvKgN0KEKfe9-B_7zb2MphHVW71t7LwVUFTE7fL74vJPXV-zPeIRd6WKydYJ6y3uuB5qouAWUhodA9XHDFiNK_WMGvN4YP5oxdNQPk6xv35JPW-wEldVDXLbHOR6kcLqMArC8GMO_GNIQQqBeYa0GFsF9xZkd"
-    },
-    {
-        name: "Julian Thorne",
-        role: "Senior Architect",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAa_lymFdOWO9zmpnU5xURLwMlJpipAIvbJLNWDtfp0A5dQNXFlp8TtJHhhXEygcvgm4juWQ4Kk8u9C2SsE4bxs7_DMFs0UW0Msmn8x1WyAPYFOo7FjGht4DN5glpYAZvWtfXnnFi0I6rlyfEUYdS0CS5m71ZG3H6e9Ls1RNS2eukRxt10Q-28Zl4k659EBN6WGMubIrpjDzto-1WeafzM7RAMpLuTOzdwyE8wyI2j147O3Eqw03H0epYwUBbJOZgQ4IGzsKvcDXWJ_"
-    },
-    {
-        name: "Sara Mendes",
-        role: "Systems Strategist",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC_a8D9_sbKB2dUXYbm3xjR7pGrcApYj6hI-ztLExCR6jNC3-yWgKYu8lyl4QhfyvG1kgB9wrUIRIGh6t_CDHN3ZFiaDMrvGfSCYBhkTqjTJH5RtmrDxiL_BHfgCrreXe6lGaDvDXC_PDu0s7psqDsUPqbWQMss-RJDSY4_iq-YUft0YiuwNjtyDbgzFu8wKZxuT0NVowt-d3laBsTpwJXL5HLme2Zvua1qhrUh2jMJrSOWH6DIwlKBfCZDFI7c-5E_aFqRnU-TtlMo"
-    }
-];
+
 
 const values = [
     { icon: 'bolt', title: 'Eficiencia', description: 'Optimizamos cada proceso para reducir la latencia humana y técnica al mínimo absoluto.' },
@@ -106,9 +87,9 @@ export default function AboutPage() {
                             En Kinetix Sistemas, no solo desarrollamos software; diseñamos los flujos de trabajo que impulsarán la próxima generación de empresas globales mediante inteligencia artificial y escalabilidad absoluta.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <a href="https://wa.me/584241234567" target="_blank" rel="noopener noreferrer" className="btn-emerald">
+                            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-emerald">
                                 <span className="material-symbols-outlined text-[18px]">flag</span>
-                                Nuestra Misión
+                                Contactanos
                             </a>
                             <Link href="/portfolio" className="btn-ghost-white">
                                 Ver Portafolio
@@ -204,59 +185,46 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* ── Team Section ── */}
-            <section className="py-24 bg-white">
-                <div className="px-6 max-w-7xl mx-auto">
-                    <div className="text-center mb-14">
-                        <p className="section-overline mb-3">El motor de Kinetix</p>
-                        <h2 className="font-display text-4xl font-bold text-[var(--text-primary)]">Nuestros Expertos</h2>
-                        <div className="divider-emerald mx-auto mt-3" />
-                    </div>
+            {/* ── FAQ Section ── */}
+            <section className="py-24 px-6 max-w-3xl mx-auto">
+                <div className="text-center mb-16">
+                    <span className="section-overline">Aclaratorias Comunes</span>
+                    <h2 className="font-display text-4xl font-bold text-[var(--text-primary)] mt-4 mb-6">
+                        Preguntas Frecuentes
+                    </h2>
+                </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {experts.map((expert, idx) => (
-                            <div
-                                key={idx}
-                                className="card p-7 text-center group hover:-translate-y-3 cursor-pointer"
-                            >
-                                <div
-                                    className="w-24 h-24 rounded-2xl mx-auto mb-5 relative overflow-hidden border-2 border-[var(--surface-border)] group-hover:border-[var(--emerald)] transition-colors duration-300"
-                                >
-                                    <Image
-                                        src={expert.image}
-                                        alt={expert.name}
-                                        fill
-                                        className="object-cover"
-                                        sizes="96px"
-                                    />
-                                </div>
-                                <h4 className="font-display text-lg font-bold text-[var(--text-primary)] mb-1">
-                                    {expert.name}
-                                </h4>
-                                <span className="text-[10px] text-[var(--emerald)] font-bold uppercase tracking-widest block mb-5">
-                                    {expert.role}
+                <div className="space-y-4">
+                    {[
+                        {
+                            question: "¿Cuál es el enfoque principal de Sistemas Kinetix?",
+                            answer: "Nos especializamos en desarrollar ecosistemas digitales escalables y soluciones de automatización con Inteligencia Artificial. Nuestro objetivo es transformar procesos manuales en flujos de trabajo eficientes que permitan a las empresas crecer sin límites técnicos."
+                        },
+                        {
+                            question: "¿Qué tecnologías utilizan en sus desarrollos?",
+                            answer: "Trabajamos con un stack de vanguardia que incluye Next.js, React y Tailwind CSS para el frontend, y Supabase o Firebase para bases de datos robustas. Para la automatización, utilizamos n8n junto con APIs de OpenAI y Groq para potenciar agentes de IA."
+                        },
+                        {
+                            question: "¿Trabajan solo con empresas en Venezuela?",
+                            answer: "Aunque tenemos un fuerte enfoque en el mercado de Barquisimeto y Venezuela, nuestros servicios de desarrollo y automatización en la nube nos permiten atender a clientes a nivel internacional, ofreciendo soluciones digitales globales."
+                        },
+                        {
+                            question: "¿Cómo es el proceso de consultoría inicial?",
+                            answer: "Comenzamos con un Diagnóstico Técnico profundo para entender las necesidades y cuellos de botella de tu negocio. Luego, diseñamos una propuesta arquitectónica detallada con los flujos de trabajo recomendados antes de escribir la primera línea de código."
+                        }
+                    ].map((faq, idx) => (
+                        <details key={idx} className="group card overflow-hidden cursor-pointer">
+                            <summary className="flex justify-between items-center font-bold list-none p-6 text-[var(--text-primary)] group-open:bg-[var(--surface-muted)] transition-colors">
+                                <span className="text-lg pr-8">{faq.question}</span>
+                                <span className="transition-transform duration-300 group-open:rotate-180 shrink-0">
+                                    <ChevronDown className="text-[var(--primary)] w-6 h-6" />
                                 </span>
-                                <div className="flex justify-center gap-2">
-                                    <button
-                                        aria-label={`Conectar con ${expert.name}`}
-                                        className="w-8 h-8 flex items-center justify-center rounded-lg bg-[var(--surface-muted)] hover:bg-[var(--emerald)] transition-colors group/btn"
-                                    >
-                                        <span className="material-symbols-outlined text-[16px] text-[var(--text-muted)] group-hover/btn:text-white transition-colors">
-                                            alternate_email
-                                        </span>
-                                    </button>
-                                    <button
-                                        aria-label={`Perfil de ${expert.name}`}
-                                        className="w-8 h-8 flex items-center justify-center rounded-lg bg-[var(--surface-muted)] hover:bg-[var(--primary)] transition-colors group/btn"
-                                    >
-                                        <span className="material-symbols-outlined text-[16px] text-[var(--text-muted)] group-hover/btn:text-white transition-colors">
-                                            person
-                                        </span>
-                                    </button>
-                                </div>
+                            </summary>
+                            <div className="text-[var(--text-secondary)] p-6 pt-0 leading-relaxed border-t border-[var(--surface-border)] whitespace-pre-line">
+                                {faq.answer}
                             </div>
-                        ))}
-                    </div>
+                        </details>
+                    ))}
                 </div>
             </section>
 

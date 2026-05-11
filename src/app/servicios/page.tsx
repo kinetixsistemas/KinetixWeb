@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { kinetixbanner } from '../assets/index';
-import { WHATSAPP_LINK } from '../constants/number';
+import { kinetixbanner } from '../../assets/index';
+import { WHATSAPP_LINK } from '../../constants/number';
 
 interface ServiceCardProps {
     title: string;
@@ -210,6 +210,53 @@ export default function ServiciosPage() {
                                 ))}
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── Categories Section ── */}
+            <section className="py-24 bg-bg-dark relative overflow-hidden">
+
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary rounded-full blur-[150px] opacity-20 pointer-events-none"></div>
+
+                <div className="max-w-7xl mx-auto px-6 relative z-10">
+                    <div className="text-center mb-16">
+                        <span className="section-overline text-[16px]">Descubre</span>
+                        <h2 className="font-display text-4xl font-bold text-white mt-3">
+                            Nuestras Categorías
+                        </h2>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8">
+                        {/* Categoría: Automatización */}
+                        <Link href="/servicios/automatizacion" className="card p-10 group hover:-translate-y-2 hover:border-[var(--emerald)] transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center">
+                            <div className="absolute inset-0 bg-gradient-to-b from-[var(--emerald-light)] to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none"></div>
+                            <div className="w-20 h-20 flex items-center justify-center rounded-2xl mb-8 bg-white group-hover:bg-[var(--emerald-light)] group-hover:scale-110 transition-all duration-300 relative z-10 border border-[var(--surface-border)]">
+                                <span className="material-symbols-outlined text-[var(--emerald)] text-[40px]">smart_toy</span>
+                            </div>
+                            <h3 className="font-display text-3xl font-bold text-[var(--text-primary)] mb-4 relative z-10">Automatización e IA</h3>
+                            <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-8 relative z-10 max-w-sm mx-auto">
+                                Asistentes de ventas 24/7, integración n8n y flujos de trabajo inteligentes que escalan tus operaciones.
+                            </p>
+                            <span className="inline-flex items-center gap-2 text-[var(--emerald)] font-bold uppercase tracking-wider text-sm mt-auto relative z-10 group-hover:gap-4 transition-all">
+                                Ver Planes y Servicios <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+                            </span>
+                        </Link>
+
+                        {/* Categoría: Desarrollo Web */}
+                        <Link href="/servicios/desarrollo-web" className="card p-10 group hover:-translate-y-2 hover:border-[var(--primary)] transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center">
+                            <div className="absolute inset-0 bg-gradient-to-b from-[var(--primary-light)] to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none"></div>
+                            <div className="w-20 h-20 flex items-center justify-center rounded-2xl mb-8 bg-white group-hover:bg-[var(--primary-light)] group-hover:scale-110 transition-all duration-300 relative z-10 border border-[var(--surface-border)]">
+                                <span className="material-symbols-outlined text-[var(--primary)] text-[40px]">code_blocks</span>
+                            </div>
+                            <h3 className="font-display text-3xl font-bold text-[var(--text-primary)] mb-4 relative z-10">Desarrollo Web</h3>
+                            <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-8 relative z-10 max-w-sm mx-auto">
+                                Landing pages, E-commerce y ecosistemas digitales robustos optimizados para conversión y posicionamiento SEO.
+                            </p>
+                            <span className="inline-flex items-center gap-2 text-[var(--primary)] font-bold uppercase tracking-wider text-sm mt-auto relative z-10 group-hover:gap-4 transition-all">
+                                Ver Planes y Servicios <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+                            </span>
+                        </Link>
                     </div>
                 </div>
             </section>

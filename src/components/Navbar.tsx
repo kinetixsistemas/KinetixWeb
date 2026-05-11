@@ -12,8 +12,9 @@ const navLinks = [
 ];
 
 const servicesLinks = [
-  { href: '/servicios/automatizacion', label: 'Automatización', icon: 'bolt' },
-  { href: '/servicios/desarrollo-web', label: 'Desarrollo Web', icon: 'code' },
+  { href: '/servicios', label: 'Todos los Servicios', icon: 'grid_view', desc: 'Explora todas nuestras soluciones' },
+  { href: '/servicios/automatizacion', label: 'Automatización e IA', icon: 'smart_toy', desc: 'Asistentes 24/7 y flujos n8n' },
+  { href: '/servicios/desarrollo-web', label: 'Desarrollo Web', icon: 'code_blocks', desc: 'Plataformas escalables y eficaces' },
 ]
 
 export default function Navbar() {
@@ -102,42 +103,46 @@ export default function Navbar() {
               Inicio
             </Link>
 
-            {/* Dropdown Servicios */}
-            <div className="relative" ref={dropdownRef}>
-              <div className="flex items-center">
-                {/* El texto "Servicios" ahora es un Link clickeable */}
-                <Link
-                  href="/servicios"
-                  className={`px-4 py-2 rounded-l-lg text-sm font-semibold transition-all ${pathname.startsWith('/servicios') ? 'text-[var(--primary)] bg-[var(--primary-light)]' : 'text-[var(--text-secondary)] hover:bg-[var(--surface-muted)]'
-                    }`}
-                >
-                  Servicios
-                </Link>
-
-                {/* Botón pequeño para abrir el dropdown */}
-                <button
-                  onClick={() => setIsServiceOpen(!isServicesOpen)}
-                  className={`pr-2 py-2 rounded-r-lg transition-all ${pathname.startsWith('/servicios') ? 'bg-[var(--primary-light)] text-[var(--primary)]' : 'text-[var(--text-secondary)] hover:bg-[var(--surface-muted)]'
-                    }`}
-                >
-                  <span className={`material-symbols-outlined text-[18px] transition-transform ${isServicesOpen ? 'rotate-180' : ''}`}>
-                    expand_more
-                  </span>
-                </button>
-              </div>
+            {/* Dropdown Servicios (Hover Menu) */}
+            <div 
+              className="relative group/nav" 
+              onMouseEnter={() => setIsServiceOpen(true)}
+              onMouseLeave={() => setIsServiceOpen(false)}
+            >
+              <Link
+                href="/servicios"
+                className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${pathname.startsWith('/servicios') ? 'text-[var(--primary)] bg-[var(--primary-light)]' : 'text-[var(--text-secondary)] hover:bg-[var(--surface-muted)]'}`}
+              >
+                Servicios
+                <span className={`material-symbols-outlined text-[18px] transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}>
+                  expand_more
+                </span>
+              </Link>
 
               {/* Menu Desplegable */}
-              <div className={`absolute top-full left-0 mt-2 w-56 rounded-xl bg-white border border-[var(--surface-border)] shadow-xl p-2 transition-all duration-200 origin-top-left ${isServicesOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'}`}>
-                {servicesLinks.map((service) => (
-                  <Link
-                    key={service.href}
-                    href={service.href}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-[var(--text-secondary)] hover:text-[var(--primary)] hover:bg-[var(--primary-light)] transition-colors"
-                  >
-                    <span className="material-symbols-outlined text-[20px]">{service.icon}</span>
-                    {service.label}
-                  </Link>
-                ))}
+              <div className={`absolute top-full left-0 pt-2 w-72 transition-all duration-300 origin-top-left ${isServicesOpen ? 'opacity-100 scale-100 translate-y-0 visible' : 'opacity-0 scale-95 -translate-y-2 invisible'}`}>
+                <div className="bg-white rounded-xl border border-[var(--surface-border)] shadow-[0_8px_30px_rgba(0,0,0,0.12)] p-2 flex flex-col gap-1">
+                  {servicesLinks.map((service) => (
+                    <Link
+                      key={service.href}
+                      href={service.href}
+                      className="flex gap-3 p-3 rounded-lg hover:bg-[var(--surface-muted)] transition-colors group/item"
+                      onClick={() => setIsServiceOpen(false)}
+                    >
+                      <div className={`w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--primary-light)] text-[var(--primary)] group-hover/item:text-white transition-colors shrink-0 ${service.href.includes('automatizacion') ? 'group-hover/item:bg-[var(--emerald)]' : 'group-hover/item:bg-[var(--primary)]'}`}>
+                        <span className="material-symbols-outlined text-[20px]">{service.icon}</span>
+                      </div>
+                      <div>
+                        <div className={`text-sm font-bold text-[var(--text-primary)] transition-colors ${service.href.includes('automatizacion') ? 'group-hover/item:text-[var(--emerald)]' : 'group-hover/item:text-[var(--primary)]'}`}>
+                          {service.label}
+                        </div>
+                        <div className="text-[11px] text-[var(--text-secondary)] mt-0.5 leading-snug">
+                          {service.desc}
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -218,10 +223,16 @@ export default function Navbar() {
 
           {/* Servicios en Mobile */}
           <div className="py-2">
-            <span className="px-3 text-xs font-bold text-[var(--text-muted)] uppercase tracking-widest">Servicios</span>
+            <span className="px-3 text-xs font-bold text-[var(--text-muted)] uppercase tracking-widest mb-2 block">Servicios</span>
             {servicesLinks.map((service) => (
-              <Link key={service.href} href={service.href} className="flex items-center gap-3 p-3 rounded-xl font-semibold hover:bg-slate-50 pl-6">
-                <span className="material-symbols-outlined text-[var(--primary)]">{service.icon}</span> {service.label}
+              <Link key={service.href} href={service.href} className="flex items-center gap-3 p-3 rounded-xl hover:bg-[var(--surface-muted)] transition-colors">
+                <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-[var(--primary-light)] text-[var(--primary)] shrink-0">
+                  <span className="material-symbols-outlined text-[18px]">{service.icon}</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-bold text-[var(--text-primary)] text-sm">{service.label}</span>
+                  <span className="text-[11px] text-[var(--text-secondary)] leading-tight mt-0.5">{service.desc}</span>
+                </div>
               </Link>
             ))}
           </div>
