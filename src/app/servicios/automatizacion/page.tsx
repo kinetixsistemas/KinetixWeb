@@ -1,7 +1,10 @@
 import React from 'react';
+import { Bot, Database, ChevronDown, GitMerge, } from 'lucide-react';
 import { Metadata } from 'next';
-import { Bot, Database, Headset, GitMerge, FileText, CheckCircle2, Zap, TrendingUp, MapPin, ChevronDown } from 'lucide-react';
-import PricingSection from '../../component/PricingSection';
+import PricingSection from '@/src/components/PricingSection';
+import faqs from '@/src/constants/faqsAutom';
+import solutions from '@/src/constants/asutionsAutom';
+import benefits from '@/src/constants/benefiAutom';
 
 export const metadata: Metadata = {
   title: "Sistemas Kinetix: Expertos en Automatización e IA para Negocios en Venezuela",
@@ -10,86 +13,10 @@ export const metadata: Metadata = {
 };
 
 export default function AutomatizacionPage() {
-  const faqs = [
-    {
-      question: "¿Necesito saber programar para usar los servicios de Kinetix?",
-      answer: "No. En Sistemas Kinetix entregamos soluciones \"llave en mano\". Nosotros nos encargamos de toda la configuración técnica en n8n, la conexión con la Evolution API y el entrenamiento de la IA. Usted solo recibe los resultados directamente en su WhatsApp o panel de control."
-    },
-    {
-      question: "¿Qué es exactamente un \"Chat Atendido\"?",
-      answer: "Contabilizamos un chat atendido cada vez que un cliente nuevo inicia una conversación y es gestionado por la IA de forma completa. No cobramos por mensaje individual, lo que le permite tener conversaciones fluidas y extensas con sus clientes sin preocuparse por el costo por palabra."
-    },
-    {
-      question: "¿Por qué dicen que el costo de instalación es $0?",
-      answer: "A diferencia de otras agencias que cobran tarifas de \"Setup\" de hasta $50, nosotros hemos automatizado nuestros procesos internos de despliegue. Esto nos permite eliminar la barrera de entrada y que usted solo pague por el servicio activo desde el primer día."
-    },
-    {
-      question: "¿Mi número de WhatsApp corre riesgo de ser bloqueado?",
-      answer: "Utilizamos la Evolution API, una de las tecnologías más estables para la conexión con Meta. Además, configuramos cada instancia de forma independiente para que el comportamiento del bot sea lo más humano posible, reduciendo drásticamente los riesgos asociados al uso de automatizaciones."
-    },
-    {
-      question: "¿Puedo cancelar mi suscripción cuando quiera?",
-      answer: "Sí. Nuestros planes mensuales funcionan bajo la modalidad de suscripción sin contratos de permanencia obligatoria. Si decide no renovar el siguiente mes, el servicio simplemente se detendrá al finalizar el periodo pagado."
-    },
-    {
-      question: "¿Qué pasa si excedo el límite de chats de mi plan?",
-      answer: "Si su negocio crece más rápido de lo esperado, ¡felicidades! El sistema seguirá funcionando. Simplemente se aplicará un costo de $5 por cada 100 chats adicionales o podrá optar por subir al siguiente plan para obtener una mejor tarifa por volumen."
-    }
-  ];
-
-  const solutions = [
-    {
-      title: "Agentes de Ventas para WhatsApp e Instagram",
-      description: "Implementamos asistentes inteligentes capaces de saludar, calificar prospectos y cerrar ventas de forma autónoma utilizando Groq y OpenAI.",
-      icon: <Bot className="w-6 h-6 text-emerald" />
-    },
-    {
-      title: "Gestión Inteligente de Leads",
-      description: "Olvídate de filtrar mensajes manualmente; nuestra IA identifica a los clientes con alta intención de compra y los organiza en tu base de datos de Supabase o Google Sheets al instante.",
-      icon: <Database className="w-6 h-6 text-primary" />
-    },
-    {
-      title: "Atención al Cliente Multi-Nivel",
-      description: "Bots entrenados con tu propia base de conocimientos para responder dudas técnicas, políticas de envío y precios con precisión humana.",
-      icon: <Headset className="w-6 h-6 text-emerald" />
-    },
-    {
-      title: "Sincronización de Ecosistemas (n8n)",
-      description: "Conectamos todas tus herramientas (CRM, Gmail, Calendarios, Bases de Datos) para que la información fluya sin errores humanos.",
-      icon: <GitMerge className="w-6 h-6 text-primary" />
-    },
-    {
-      title: "Automatización de Pagos y Facturación",
-      description: "Sistemas que verifican capturas de pago y generan reportes de ventas automáticos en PDF para tu administración.",
-      icon: <FileText className="w-6 h-6 text-emerald" />
-    }
-  ];
-
-  const benefits = [
-    {
-      title: "Sin Barreras de Entrada ($0 Setup)",
-      description: "A diferencia de otras agencias, eliminamos el costo de instalación inicial para que empieces a ver resultados desde el primer día.",
-      icon: <CheckCircle2 className="w-8 h-8 text-emerald" />
-    },
-    {
-      title: "Velocidad de Respuesta Insuperable",
-      description: "Gracias al uso de la infraestructura de Groq, tus clientes recibirán respuestas en milisegundos, mejorando la experiencia de usuario y la tasa de conversión.",
-      icon: <Zap className="w-8 h-8 text-primary" />
-    },
-    {
-      title: "Escalabilidad SaaS",
-      description: "Nuestro modelo de suscripción te permite subir de nivel según tu negocio crezca, pagando solo por lo que realmente necesitas.",
-      icon: <TrendingUp className="w-8 h-8 text-emerald" />
-    },
-    {
-      title: "Soporte Local en Barquisimeto",
-      description: "Conocemos el mercado de Lara y Venezuela, adaptando la IA al lenguaje y necesidades de nuestra región.",
-      icon: <MapPin className="w-8 h-8 text-primary" />
-    }
-  ];
 
   return (
     <main className="min-h-screen bg-bg-base">
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 gradient-hero text-text-inverted relative overflow-hidden">
         <div className="absolute inset-0 noise-overlay"></div>
@@ -101,7 +28,8 @@ export default function AutomatizacionPage() {
           </div>
           <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 tracking-tight">
             Sistemas Kinetix: <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald to-blue-400">
+
+            <span className="text-transparent bg-clip-text bg-gradient-to-br from-emerald to-blue-600">
               Expertos en Automatización e IA
             </span> <br className="hidden md:block" />
             para Negocios en Venezuela
@@ -114,7 +42,7 @@ export default function AutomatizacionPage() {
               Ver nuestros planes
             </a>
             <a href="https://wa.me/message/TU_WHATSAPP" target="_blank" rel="noopener noreferrer" className="btn-ghost-white w-full sm:w-auto text-lg px-8 py-4 justify-center">
-              Agenda una demostración
+              Demo 15 dias gratis
             </a>
           </div>
         </div>

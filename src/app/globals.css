@@ -340,7 +340,7 @@ h3 {
 
   /* ---- Gradients ---- */
   .gradient-hero {
-    background: linear-gradient(135deg, #0d1b2a 0%, #0a2240 50%, #062356 100%);
+    background: linear-gradient(135deg, #04142f 100%, #0d1b2a 0%, #0a2240 50%, #062356 100%);
   }
 
   .gradient-emerald {

@@ -1,8 +1,8 @@
 import React from "react";
-import BentoCard from "./component/BentoCard";
-import WhatsAppSimulator from "./component/WhatsAppSimulator";
+import BentoCard from "@/src/components/BentoCard";
+import WhatsAppSimulator from "@/src/components/WhatsAppSimulator";
 import Link from "next/link";
-import { WHATSAPP_LINK } from "./constants/number";
+import { WHATSAPP_LINK } from "@/src/constants/number";
 
 const coreServices = [
   {

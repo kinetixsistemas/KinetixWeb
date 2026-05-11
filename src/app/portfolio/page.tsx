@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import ProjectCard from '@/app/component/ProjectCard';
-import { bannerportafolio } from '@/app/assets/index';
-import { projects } from '@/app/constants/projects';
+import ProjectCard from '@/src/components/ProjectCard';
+import { bannerportafolio } from '@/src/assets/index';
+import { projects } from '@/src/constants/projects';
 
 
 
