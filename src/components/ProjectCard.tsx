@@ -1,7 +1,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Project } from '@/app/constants/projects';
+import { Project } from '@/src/constants/projects';
 
 interface ProjectCardProps {
     project: Project;
