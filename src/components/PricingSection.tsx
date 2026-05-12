@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { Check } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const plans = [
   {
@@ -59,7 +60,13 @@ export default function PricingSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary rounded-full blur-[150px] opacity-20 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
           <span className="section-overline text-primary">Pricing</span>
           <h2 className="text-4xl md:text-5xl font-display text-text-inverted mt-4 mb-6">Pricing that grows with you</h2>
           <p className="text-text-muted max-w-2xl mx-auto text-lg">
@@ -80,13 +87,17 @@ export default function PricingSection() {
               Annually
             </button>
           </div>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 items-stretch">
           {plans.map((plan, i) => (
-            <div 
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               key={i} 
-              className={`relative flex flex-col p-8 rounded-[24px] transition-all duration-300 ${plan.recommended ? 'bg-bg-dark-card border-2 border-primary transform md:-translate-y-4 shadow-primary' : 'bg-bg-dark border border-surface-border-dark hover:border-surface-border'}`}
+              className={`relative flex flex-col p-8 rounded-[24px] transition-all duration-300 hover:scale-105 hover:z-10 ${plan.recommended ? 'bg-bg-dark-card border-2 border-primary transform md:-translate-y-4 shadow-primary' : 'bg-bg-dark border border-surface-border-dark hover:border-surface-border'}`}
             >
               {plan.recommended && (
                 <div className="absolute -top-4 left-0 right-0 flex justify-center">
@@ -125,7 +136,7 @@ export default function PricingSection() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

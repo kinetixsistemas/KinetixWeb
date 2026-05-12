@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { WHATSAPP_LINK } from '@/src/constants/number';
 
 export interface Expert {
@@ -67,7 +70,12 @@ export default function AboutPage() {
                 />
 
                 <div className="relative z-10 px-6 max-w-7xl mx-auto w-full py-24">
-                    <div className="max-w-3xl">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="max-w-3xl"
+                    >
                         <p className="section-overline mb-4">Sobre Nosotros</p>
                         <h1 className="font-display text-5xl md:text-7xl font-bold text-white mb-7 leading-tight" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}>
                             Arquitectos del{' '}
@@ -94,7 +102,7 @@ export default function AboutPage() {
                                 Ver Portafolio
                             </Link>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -107,8 +115,15 @@ export default function AboutPage() {
                             { value: '5+', label: 'Años de Experiencia' },
                             { value: '99.9%', label: 'Uptime Garantizado' },
                             { value: '24/7', label: 'Soporte Activo' },
-                        ].map(({ value, label }) => (
-                            <div key={label} className="text-center py-4">
+                        ].map(({ value, label }, idx) => (
+                            <motion.div 
+                                key={label} 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                className="text-center py-4"
+                            >
                                 <div
                                     className="font-display text-4xl font-bold mb-1"
                                     style={{
@@ -121,7 +136,7 @@ export default function AboutPage() {
                                     {value}
                                 </div>
                                 <div className="text-[12px] font-semibold text-[var(--text-muted)] uppercase tracking-wider">{label}</div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
@@ -137,7 +152,13 @@ export default function AboutPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
                     {/* Story Card */}
-                    <div className="md:col-span-8 card p-10 relative overflow-hidden group">
+                    <motion.div 
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="md:col-span-8 card p-10 relative overflow-hidden group"
+                    >
                         <div className="relative z-10">
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-10 h-10 flex items-center justify-center rounded-xl" style={{ background: 'var(--emerald-light)' }}>
@@ -158,16 +179,26 @@ export default function AboutPage() {
                             className="absolute -right-16 -bottom-16 w-64 h-64 rounded-full transition-transform duration-700 group-hover:scale-110"
                             style={{ background: 'radial-gradient(circle, rgba(0,199,143,0.08) 0%, transparent 70%)', filter: 'blur(40px)' }}
                         />
-                    </div>
+                    </motion.div>
 
                     {/* Efficiency */}
-                    <ValueCard icon="bolt" title="Eficiencia" description="Optimizamos cada proceso para reducir la latencia humana y técnica al mínimo absoluto." className="md:col-span-4" />
+                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} className="md:col-span-4">
+                        <ValueCard icon="bolt" title="Eficiencia" description="Optimizamos cada proceso para reducir la latencia humana y técnica al mínimo absoluto." />
+                    </motion.div>
 
                     {/* Scalability */}
-                    <ValueCard icon="auto_awesome_motion" title="Escalabilidad" description="Sistemas diseñados para crecer exponencialmente sin comprometer la integridad estructural." className="md:col-span-4" />
+                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} className="md:col-span-4">
+                        <ValueCard icon="auto_awesome_motion" title="Escalabilidad" description="Sistemas diseñados para crecer exponencialmente sin comprometer la integridad estructural." />
+                    </motion.div>
 
                     {/* Cutting-edge Tech */}
-                    <div className="md:col-span-8 card p-8 flex flex-col md:flex-row items-center gap-8 group">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        className="md:col-span-8 card p-8 flex flex-col md:flex-row items-center gap-8 group"
+                    >
                         <div className="hidden lg:flex w-32 h-32 items-center justify-center rounded-2xl flex-shrink-0 transition-colors duration-300 group-hover:bg-[var(--primary)]"
                             style={{ background: 'var(--primary-light)' }}>
                             <span className="material-symbols-outlined text-[var(--primary)] text-5xl group-hover:text-white transition-colors">
@@ -180,7 +211,7 @@ export default function AboutPage() {
                                 Lideramos la implementación de Modelos de Lenguaje Avanzados y computación en el borde para garantizar que nuestros clientes operen siempre en la frontera de lo posible.
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -212,7 +243,14 @@ export default function AboutPage() {
                             answer: "Comenzamos con un Diagnóstico Técnico profundo para entender las necesidades y cuellos de botella de tu negocio. Luego, diseñamos una propuesta arquitectónica detallada con los flujos de trabajo recomendados antes de escribir la primera línea de código."
                         }
                     ].map((faq, idx) => (
-                        <details key={idx} className="group card overflow-hidden cursor-pointer">
+                        <motion.details 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                            key={idx} 
+                            className="group card overflow-hidden cursor-pointer"
+                        >
                             <summary className="flex justify-between items-center font-bold list-none p-6 text-[var(--text-primary)] group-open:bg-[var(--surface-muted)] transition-colors">
                                 <span className="text-lg pr-8">{faq.question}</span>
                                 <span className="transition-transform duration-300 group-open:rotate-180 shrink-0">
@@ -222,14 +260,18 @@ export default function AboutPage() {
                             <div className="text-[var(--text-secondary)] p-6 pt-0 leading-relaxed border-t border-[var(--surface-border)] whitespace-pre-line">
                                 {faq.answer}
                             </div>
-                        </details>
+                        </motion.details>
                     ))}
                 </div>
             </section>
 
             {/* ── CTA Section ── */}
             <section className="py-24 px-6">
-                <div
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
                     className="max-w-7xl mx-auto rounded-2xl p-12 md:p-16 text-center relative overflow-hidden"
                     style={{ background: 'linear-gradient(135deg, var(--primary) 0%, #002d6a 100%)' }}
                 >
@@ -262,7 +304,7 @@ export default function AboutPage() {
                             </Link>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
         </main>
