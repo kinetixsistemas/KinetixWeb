@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import ProjectCard from '@/src/components/ProjectCard';
 import { bannerportafolio } from '@/src/assets/index';
 import { projects } from '@/src/constants/projects';
@@ -30,7 +33,7 @@ export default function PortfolioPage() {
                         backgroundSize: '48px 48px',
                     }}
                 />
-                <div className="absolute topimport Link from 'next/link'; -0 left-0 right-0 h-px pointer-events-none"
+                <div className="absolute top-0 left-0 right-0 h-px pointer-events-none"
                     style={{ background: 'linear-gradient(90deg, transparent, var(--emerald), transparent)' }}
                 />
 
@@ -46,11 +49,21 @@ export default function PortfolioPage() {
                 </div>
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10 text-center py-24">
-                    <div className="badge badge-emerald mx-auto mb-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="badge badge-emerald mx-auto mb-6"
+                    >
                         <span className="w-1.5 h-1.5 bg-[var(--emerald)] rounded-full" />
                         Soluciones Enterprise
-                    </div>
-                    <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-6 max-w-3xl mx-auto leading-tight">
+                    </motion.div>
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="font-display text-5xl md:text-6xl font-bold text-white mb-6 max-w-3xl mx-auto leading-tight"
+                    >
                         Nuestras Soluciones{' '}
                         <span
                             style={{
@@ -62,10 +75,15 @@ export default function PortfolioPage() {
                         >
                             en Acción
                         </span>
-                    </h1>
-                    <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed"
+                    >
                         Transformamos la complejidad técnica en eficiencia operativa. Explore cómo Kinetix Sistemas impulsa el futuro a través de la automatización y el diseño de alta fidelidad.
-                    </p>
+                    </motion.p>
                 </div>
             </section>
 
@@ -75,12 +93,24 @@ export default function PortfolioPage() {
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
 
                         {/* Featured project */}
-                        <div className="md:col-span-8 group">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5 }}
+                            className="md:col-span-8 group"
+                        >
                             <ProjectCard project={projects[0]} />
-                        </div>
+                        </motion.div>
 
                         {/* Stats Card */}
-                        <div className="md:col-span-4">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                            className="md:col-span-4"
+                        >
                             <div
                                 className="h-full rounded-[var(--radius-lg)] p-8 flex flex-col justify-center border border-white/10"
                                 style={{ background: 'linear-gradient(135deg, var(--primary) 0%, #002d6a 100%)' }}
@@ -96,15 +126,22 @@ export default function PortfolioPage() {
                                     <div className="text-[11px] font-bold text-white/50 uppercase tracking-widest">Reducción en Latencia</div>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
 
                     {/* Remaining projects */}
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
                         {projects.slice(1).map((project, index) => (
-                            <div key={index} className={`${project.span} group`}>
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                className={`${project.span} group`}
+                            >
                                 <ProjectCard project={project} />
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
@@ -112,7 +149,13 @@ export default function PortfolioPage() {
 
             {/* ── CTA ── */}
             <section className="py-24 bg-[var(--bg-base)] relative overflow-hidden">
-                <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="max-w-4xl mx-auto text-center px-6 relative z-10"
+                >
                     <p className="section-overline mb-4">¿Listo para comenzar?</p>
                     <h2 className="font-display text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-8">
                         ¿Listo para escalar su infraestructura?
@@ -131,7 +174,8 @@ export default function PortfolioPage() {
                             Ver Servicios
                         </Link>
                     </div>
-                </div>
+                </motion.div>
+
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px"
                     style={{ background: 'linear-gradient(90deg, transparent, rgba(0,199,143,0.3), transparent)' }}
                 />

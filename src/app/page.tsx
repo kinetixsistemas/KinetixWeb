@@ -1,4 +1,6 @@
+'use client';
 import React from "react";
+import { motion } from "framer-motion";
 import BentoCard from "@/src/components/BentoCard";
 import WhatsAppSimulator from "@/src/components/WhatsAppSimulator";
 import Link from "next/link";
@@ -84,7 +86,12 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6 w-full py-16 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
 
             {/* LEFT: Copy */}
-            <div className="md:col-span-6 xl:col-span-7 space-y-7">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="md:col-span-6 xl:col-span-7 space-y-7"
+            >
 
               {/* Badge */}
               <div className="badge badge-emerald animate-float">
@@ -120,11 +127,17 @@ export default function Home() {
                   { value: '50+', label: 'Proyectos' },
                   { value: '99.9%', label: 'Uptime' },
                   { value: '3x', label: 'Más rápido' },
-                ].map(({ value, label }) => (
-                  <div key={label} className="text-center p-3 rounded-xl bg-white/70 border border-[var(--surface-border)] shadow-sm">
+                ].map(({ value, label }, idx) => (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.3 + idx * 0.1 }}
+                    key={label} 
+                    className="text-center p-3 rounded-xl bg-white/70 border border-[var(--surface-border)] shadow-sm"
+                  >
                     <div className="text-2xl font-bold text-[var(--primary)]">{value}</div>
                     <div className="text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-wider mt-0.5">{label}</div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
@@ -151,10 +164,15 @@ export default function Home() {
                   <strong className="text-[var(--text-primary)]">+50 empresas</strong> confían en nosotros
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* RIGHT: Visual Card */}
-            <div className="md:col-span-6 xl:col-span-5 flex justify-center md:justify-end">
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="md:col-span-6 xl:col-span-5 flex justify-center md:justify-end"
+            >
               <div className="relative w-full max-w-[440px]">
 
                 {/* Main image card */}
@@ -198,14 +216,20 @@ export default function Home() {
                   }}
                 />
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </section>
 
         {/* ── Services Bento Grid ── */}
         <section className="py-20 px-6 max-w-7xl mx-auto">
-          <div className="mb-14 text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-14 text-center"
+          >
             <p className="section-overline mb-3 text-[14px]">Lo que hacemos</p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
               Servicios de Integración con{" "}
@@ -221,81 +245,89 @@ export default function Home() {
               </span>
             </h2>
             <div className="divider-emerald mx-auto" />
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
             {/* Large Card */}
-            <BentoCard className="md:col-span-7 flex flex-col justify-between">
-              <div>
-                <span className="material-symbols-outlined text-4xl text-[var(--emerald)] mb-5 block">
-                  precision_manufacturing
-                </span>
-                <h3 className="font-display text-2xl font-bold text-[var(--text-primary)] mb-3">
-                  Automatización de Canales de Venta
-                </h3>
-                <p className="text-[var(--text-secondary)] max-w-lg leading-relaxed">
-                  Creación de asistentes de IA capaces de gestionar de forma autónoma y transformar tu canal de WhatsApp en una máquina de ventas que atiende,
-                  filtra y califica prospectos en tiempo real, sin interrupciones.
-                </p>
-              </div>
-              <div className="mt-8 flex flex-wrap gap-2">
-                {["Gestión de Leads", "Atención 24/7", "SaaS (Software as a Service)"].map((tag) => (
-                  <span key={tag} className="tech-chip">{tag}</span>
-                ))}
-              </div>
-            </BentoCard>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="md:col-span-7">
+              <BentoCard className="flex flex-col justify-between h-full">
+                <div>
+                  <span className="material-symbols-outlined text-4xl text-[var(--emerald)] mb-5 block">
+                    precision_manufacturing
+                  </span>
+                  <h3 className="font-display text-2xl font-bold text-[var(--text-primary)] mb-3">
+                    Automatización de Canales de Venta
+                  </h3>
+                  <p className="text-[var(--text-secondary)] max-w-lg leading-relaxed">
+                    Creación de asistentes de IA capaces de gestionar de forma autónoma y transformar tu canal de WhatsApp en una máquina de ventas que atiende,
+                    filtra y califica prospectos en tiempo real, sin interrupciones.
+                  </p>
+                </div>
+                <div className="mt-8 flex flex-wrap gap-2">
+                  {["Gestión de Leads", "Atención 24/7", "SaaS (Software as a Service)"].map((tag) => (
+                    <span key={tag} className="tech-chip">{tag}</span>
+                  ))}
+                </div>
+              </BentoCard>
+            </motion.div>
 
             {/* Cloud Card */}
-            <BentoCard className="md:col-span-5">
-              <span className="material-symbols-outlined text-4xl text-[var(--emerald)] mb-5 block">
-                timer
-              </span>
-              <h3 className="font-display text-xl font-bold text-[var(--text-primary)] mb-2">
-                Eficiencia Operativa y Tiempo
-              </h3>
-              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
-                Kinetix no solo vende "tecnología", vende tiempo recuperado eliminando la carga de tareas repetitivas
-                para que los dueños de negocio puedan enfocarse en el crecimiento, mientras la IA se encarga de la atención de sus clientes.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-2">
-                {["Reducción de Carga", "Tareas Repetitivas", "Optimización de Tiempo"].map((tag) => (
-                  <span key={tag} className="tech-chip">{tag}</span>
-                ))}
-              </div>
-            </BentoCard>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="md:col-span-5">
+              <BentoCard className="h-full">
+                <span className="material-symbols-outlined text-4xl text-[var(--emerald)] mb-5 block">
+                  timer
+                </span>
+                <h3 className="font-display text-xl font-bold text-[var(--text-primary)] mb-2">
+                  Eficiencia Operativa y Tiempo
+                </h3>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+                  Kinetix no solo vende "tecnología", vende tiempo recuperado eliminando la carga de tareas repetitivas
+                  para que los dueños de negocio puedan enfocarse en el crecimiento, mientras la IA se encarga de la atención de sus clientes.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-2">
+                  {["Reducción de Carga", "Tareas Repetitivas", "Optimización de Tiempo"].map((tag) => (
+                    <span key={tag} className="tech-chip">{tag}</span>
+                  ))}
+                </div>
+              </BentoCard>
+            </motion.div>
 
             {/* Security Card */}
-            <BentoCard className="md:col-span-4">
-              <span className="material-symbols-outlined text-4xl text-[var(--emerald)] mb-5 block">
-                security
-              </span>
-              <h3 className="font-display text-xl font-bold text-[var(--text-primary)] mb-2">
-                Despliegue de Instancias Seguras
-              </h3>
-              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
-                Configuramos conexiones robustas mediante Evolution API o Cloud API de Meta, garantizando una comunicación fluida y protegida.
-              </p>
-            </BentoCard>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} className="md:col-span-4">
+              <BentoCard className="h-full">
+                <span className="material-symbols-outlined text-4xl text-[var(--emerald)] mb-5 block">
+                  security
+                </span>
+                <h3 className="font-display text-xl font-bold text-[var(--text-primary)] mb-2">
+                  Despliegue de Instancias Seguras
+                </h3>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+                  Configuramos conexiones robustas mediante Evolution API o Cloud API de Meta, garantizando una comunicación fluida y protegida.
+                </p>
+              </BentoCard>
+            </motion.div>
 
             {/* AI Card – Dark variant */}
-            <BentoCard variant="primary" className="md:col-span-8 relative overflow-hidden group">
-              <div className="relative z-10">
-                <span className="material-symbols-outlined text-4xl text-[var(--emerald)] mb-5 block">
-                  insights
-                </span>
-                <h3 className="font-display text-2xl font-bold text-white mb-3">
-                  Ecosistemas de Automatización con n8n
-                </h3>
-                <p className="text-white/70 max-w-md leading-relaxed">
-                  Orquestamos flujos de trabajo complejos conectando múltiples servicios y aplicaciones
-                  para crear sistemas autónomos que operan las 24 horas del día, los 7 días de la semana.
-                </p>
-              </div>
-              {/* Decorative icon */}
-              <div className="absolute right-0 bottom-0 opacity-10 transform translate-x-8 translate-y-8 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-700">
-                <span className="material-symbols-outlined text-[140px] text-white">data_exploration</span>
-              </div>
-            </BentoCard>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} className="md:col-span-8">
+              <BentoCard variant="primary" className="relative overflow-hidden group h-full">
+                <div className="relative z-10">
+                  <span className="material-symbols-outlined text-4xl text-[var(--emerald)] mb-5 block">
+                    insights
+                  </span>
+                  <h3 className="font-display text-2xl font-bold text-white mb-3">
+                    Ecosistemas de Automatización con n8n
+                  </h3>
+                  <p className="text-white/70 max-w-md leading-relaxed">
+                    Orquestamos flujos de trabajo complejos conectando múltiples servicios y aplicaciones
+                    para crear sistemas autónomos que operan las 24 horas del día, los 7 días de la semana.
+                  </p>
+                </div>
+                {/* Decorative icon */}
+                <div className="absolute right-0 bottom-0 opacity-10 transform translate-x-8 translate-y-8 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-700">
+                  <span className="material-symbols-outlined text-[140px] text-white">data_exploration</span>
+                </div>
+              </BentoCard>
+            </motion.div>
           </div>
 
           {/* CTA under grid */}
@@ -326,8 +358,15 @@ export default function Home() {
               { step: "02", icon: "design_services", title: "Diseño", desc: "Arquitectura de solución personalizada con tecnologías de vanguardia." },
               { step: "03", icon: "code", title: "Desarrollo", desc: "Implementación ágil con entregas iterativas y feedback continuo." },
               { step: "04", icon: "rocket_launch", title: "Lanzamiento", desc: "Despliegue, monitoreo y soporte post-lanzamiento garantizado." },
-            ].map(({ step, icon, title, desc }) => (
-              <div key={step} className="card p-7 group">
+            ].map(({ step, icon, title, desc }, idx) => (
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                key={step} 
+                className="card p-7 group"
+              >
                 <div className="flex items-center gap-3 mb-5">
                   <span className="text-[11px] font-bold tracking-[0.15em] text-[var(--emerald)] bg-[var(--emerald-light)] px-2.5 py-1 rounded-full">
                     {step}
@@ -339,14 +378,18 @@ export default function Home() {
                 </div>
                 <h3 className="font-display text-lg font-bold text-[var(--text-primary)] mb-2">{title}</h3>
                 <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
 
         {/* ── CTA Banner ── */}
         <section className="px-6 pb-24">
-          <div
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="max-w-7xl mx-auto rounded-2xl p-12 md:p-16 text-center relative overflow-hidden"
             style={{
               background: "linear-gradient(135deg, var(--bg-dark) 0%, #0a2240 50%, #062356 100%)",
@@ -387,7 +430,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
       </main>
