@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { kinetixbanner } from '../../assets/index';
 import { WHATSAPP_LINK } from '../../constants/number';
 
@@ -63,7 +66,12 @@ export default function ServiciosPage() {
                 />
 
                 <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-24">
-                    <div className="max-w-2xl">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="max-w-2xl"
+                    >
                         <p className="section-overline mb-4">Nuestros servicios</p>
                         <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
                             Experiencia en{' '}
@@ -97,25 +105,37 @@ export default function ServiciosPage() {
                                 Ver Portafolio
                             </Link>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* ── Core Services Bento Grid ── */}
             <section className="py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-14">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="text-center mb-14"
+                    >
                         <p className="section-overline mb-2 text-[14px]">Lo que ofrecemos</p>
                         <h2 className="font-display text-4xl font-bold text-[var(--text-primary)] mb-3">
                             Servicios Principales
                         </h2>
                         <div className="divider-emerald mx-auto" />
-                    </div>
+                    </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
 
                         {/* Service 1: Web & Apps – Wide */}
-                        <div className="md:col-span-8 card p-8 group">
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5 }}
+                            className="md:col-span-8 card p-8 group"
+                        >
                             <div className="flex flex-col md:flex-row gap-8 h-full">
                                 <div className="flex-1">
                                     <div
@@ -154,36 +174,46 @@ export default function ServiciosPage() {
                                     />
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* Service 2: SEO */}
-                        <ServiceCard
-                            className="md:col-span-4"
-                            icon="query_stats"
-                            title="Inteligencia de Búsqueda (SEO)"
-                            description="Dominio estratégico para un crecimiento orgánico sostenible. Optimizamos la arquitectura técnica y el contenido semántico para garantizar que tu empresa sea la respuesta a las necesidades de tus clientes."
-                        >
-                            <div className="mt-auto pt-4 border-t border-[var(--surface-border)]">
-                                <span className="section-overline text-[var(--emerald)]">Drive Traffic</span>
-                            </div>
-                        </ServiceCard>
+                        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="md:col-span-4 h-full">
+                            <ServiceCard
+                                className="h-full"
+                                icon="query_stats"
+                                title="Inteligencia de Búsqueda (SEO)"
+                                description="Dominio estratégico para un crecimiento orgánico sostenible. Optimizamos la arquitectura técnica y el contenido semántico para garantizar que tu empresa sea la respuesta a las necesidades de tus clientes."
+                            >
+                                <div className="mt-auto pt-4 border-t border-[var(--surface-border)]">
+                                    <span className="section-overline text-[var(--emerald)]">Drive Traffic</span>
+                                </div>
+                            </ServiceCard>
+                        </motion.div>
 
                         {/* Service 3: Chatbots IA */}
-                        <ServiceCard
-                            className="md:col-span-5"
-                            icon="smart_toy"
-                            title="Agentes de IA & Chatbots Conversacionales"
-                            description="Agentes de IA especializados para impulsar tu empresa. Atención al cliente 24/7 con respuestas contextuales y precisas que califican leads en tiempo real."
-                        >
-                            <div className="flex flex-wrap gap-2">
-                                <span className="badge badge-emerald">Groq</span>
-                                <span className="badge badge-emerald">LLMs</span>
-                                <span className="badge badge-emerald">WhatsApp API</span>
-                            </div>
-                        </ServiceCard>
+                        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} className="md:col-span-5 h-full">
+                            <ServiceCard
+                                className="h-full"
+                                icon="smart_toy"
+                                title="Agentes de IA & Chatbots Conversacionales"
+                                description="Agentes de IA especializados para impulsar tu empresa. Atención al cliente 24/7 con respuestas contextuales y precisas que califican leads en tiempo real."
+                            >
+                                <div className="flex flex-wrap gap-2 mt-auto pt-4">
+                                    <span className="badge badge-emerald">Groq</span>
+                                    <span className="badge badge-emerald">LLMs</span>
+                                    <span className="badge badge-emerald">WhatsApp API</span>
+                                </div>
+                            </ServiceCard>
+                        </motion.div>
 
                         {/* Service 4: n8n Automation */}
-                        <div className="md:col-span-7 card p-8 group">
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.3 }}
+                            className="md:col-span-7 card p-8 group h-full flex flex-col"
+                        >
                             <div
                                 className="w-14 h-14 flex items-center justify-center rounded-xl mb-6 transition-all duration-300 group-hover:scale-110"
                                 style={{ background: 'var(--primary-light)' }}
@@ -193,11 +223,11 @@ export default function ServiciosPage() {
                             <h3 className="font-display text-2xl font-bold text-[var(--text-primary)] mb-3">
                                 Orquestación de Procesos con n8n
                             </h3>
-                            <p className="text-[var(--text-secondary)] mb-7 leading-relaxed">
+                            <p className="text-[var(--text-secondary)] mb-7 leading-relaxed flex-grow">
                                 Máxima eficiencia operativa mediante flujos de trabajo automatizados que conectan tus herramientas favoritas.
                                 Eliminamos las tareas repetitivas y el error humano, permitiendo que tu equipo se enfoque en lo que realmente genera valor.
                             </p>
-                            <div className="grid grid-cols-3 gap-4">
+                            <div className="grid grid-cols-3 gap-4 mt-auto">
                                 {[
                                     { val: '90%', label: 'Tiempo Ahorrado' },
                                     { val: '0%', label: 'Error Humano' },
@@ -209,7 +239,7 @@ export default function ServiciosPage() {
                                     </div>
                                 ))}
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
@@ -229,34 +259,38 @@ export default function ServiciosPage() {
 
                     <div className="grid md:grid-cols-2 gap-8">
                         {/* Categoría: Automatización */}
-                        <Link href="/servicios/automatizacion" className="card p-10 group hover:-translate-y-2 hover:border-[var(--emerald)] transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center">
-                            <div className="absolute inset-0 bg-gradient-to-b from-[var(--emerald-light)] to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none"></div>
-                            <div className="w-20 h-20 flex items-center justify-center rounded-2xl mb-8 bg-white group-hover:bg-[var(--emerald-light)] group-hover:scale-110 transition-all duration-300 relative z-10 border border-[var(--surface-border)]">
-                                <span className="material-symbols-outlined text-[var(--emerald)] text-[40px]">smart_toy</span>
-                            </div>
-                            <h3 className="font-display text-3xl font-bold text-[var(--text-primary)] mb-4 relative z-10">Automatización e IA</h3>
-                            <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-8 relative z-10 max-w-sm mx-auto">
-                                Asistentes de ventas 24/7, integración n8n y flujos de trabajo inteligentes que escalan tus operaciones.
-                            </p>
-                            <span className="inline-flex items-center gap-2 text-[var(--emerald)] font-bold uppercase tracking-wider text-sm mt-auto relative z-10 group-hover:gap-4 transition-all">
-                                Ver Planes y Servicios <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-                            </span>
-                        </Link>
+                        <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+                            <Link href="/servicios/automatizacion" className="card p-10 group hover:-translate-y-2 hover:border-[var(--emerald)] transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center h-full">
+                                <div className="absolute inset-0 bg-gradient-to-b from-[var(--emerald-light)] to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none"></div>
+                                <div className="w-20 h-20 flex items-center justify-center rounded-2xl mb-8 bg-white group-hover:bg-[var(--emerald-light)] group-hover:scale-110 transition-all duration-300 relative z-10 border border-[var(--surface-border)]">
+                                    <span className="material-symbols-outlined text-[var(--emerald)] text-[40px]">smart_toy</span>
+                                </div>
+                                <h3 className="font-display text-3xl font-bold text-[var(--text-primary)] mb-4 relative z-10">Automatización e IA</h3>
+                                <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-8 relative z-10 max-w-sm mx-auto flex-grow">
+                                    Asistentes de ventas 24/7, integración n8n y flujos de trabajo inteligentes que escalan tus operaciones.
+                                </p>
+                                <span className="inline-flex items-center gap-2 text-[var(--emerald)] font-bold uppercase tracking-wider text-sm mt-auto relative z-10 group-hover:gap-4 transition-all">
+                                    Ver Planes y Servicios <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+                                </span>
+                            </Link>
+                        </motion.div>
 
                         {/* Categoría: Desarrollo Web */}
-                        <Link href="/servicios/desarrollo-web" className="card p-10 group hover:-translate-y-2 hover:border-[var(--primary)] transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center">
-                            <div className="absolute inset-0 bg-gradient-to-b from-[var(--primary-light)] to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none"></div>
-                            <div className="w-20 h-20 flex items-center justify-center rounded-2xl mb-8 bg-white group-hover:bg-[var(--primary-light)] group-hover:scale-110 transition-all duration-300 relative z-10 border border-[var(--surface-border)]">
-                                <span className="material-symbols-outlined text-[var(--primary)] text-[40px]">code_blocks</span>
-                            </div>
-                            <h3 className="font-display text-3xl font-bold text-[var(--text-primary)] mb-4 relative z-10">Desarrollo Web</h3>
-                            <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-8 relative z-10 max-w-sm mx-auto">
-                                Landing pages, E-commerce y ecosistemas digitales robustos optimizados para conversión y posicionamiento SEO.
-                            </p>
-                            <span className="inline-flex items-center gap-2 text-[var(--primary)] font-bold uppercase tracking-wider text-sm mt-auto relative z-10 group-hover:gap-4 transition-all">
-                                Ver Planes y Servicios <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-                            </span>
-                        </Link>
+                        <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+                            <Link href="/servicios/desarrollo-web" className="card p-10 group hover:-translate-y-2 hover:border-[var(--primary)] transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center h-full">
+                                <div className="absolute inset-0 bg-gradient-to-b from-[var(--primary-light)] to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none"></div>
+                                <div className="w-20 h-20 flex items-center justify-center rounded-2xl mb-8 bg-white group-hover:bg-[var(--primary-light)] group-hover:scale-110 transition-all duration-300 relative z-10 border border-[var(--surface-border)]">
+                                    <span className="material-symbols-outlined text-[var(--primary)] text-[40px]">code_blocks</span>
+                                </div>
+                                <h3 className="font-display text-3xl font-bold text-[var(--text-primary)] mb-4 relative z-10">Desarrollo Web</h3>
+                                <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-8 relative z-10 max-w-sm mx-auto flex-grow">
+                                    Landing pages, E-commerce y ecosistemas digitales robustos optimizados para conversión y posicionamiento SEO.
+                                </p>
+                                <span className="inline-flex items-center gap-2 text-[var(--primary)] font-bold uppercase tracking-wider text-sm mt-auto relative z-10 group-hover:gap-4 transition-all">
+                                    Ver Planes y Servicios <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+                                </span>
+                            </Link>
+                        </motion.div>
                     </div>
                 </div>
             </section>
@@ -275,17 +309,28 @@ export default function ServiciosPage() {
                         'React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'n8n',
                         'OpenAI API', 'WhatsApp Business API', 'PostgreSQL', 'Redis',
                         'Docker', 'AWS', 'Vercel', 'Tailwind CSS', 'LangChain',
-                    ].map((tech) => (
-                        <span key={tech} className="tech-chip cursor-default hover:border-[var(--emerald)] hover:text-[var(--emerald)] transition-colors duration-200">
+                    ].map((tech, idx) => (
+                        <motion.span 
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, delay: idx * 0.05 }}
+                            key={tech} 
+                            className="tech-chip cursor-default hover:border-[var(--emerald)] hover:text-[var(--emerald)] transition-colors duration-200"
+                        >
                             {tech}
-                        </span>
+                        </motion.span>
                     ))}
                 </div>
             </section>
 
             {/* ── CTA ── */}
             <section className="py-24 px-6">
-                <div
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
                     className="max-w-7xl mx-auto rounded-2xl p-12 text-center relative overflow-hidden"
                     style={{ background: 'linear-gradient(135deg, var(--bg-dark) 0%, #0a2240 50%, #062356 100%)' }}
                 >
@@ -309,7 +354,7 @@ export default function ServiciosPage() {
                             Demo 15 días gratis
                         </a>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
         </main>

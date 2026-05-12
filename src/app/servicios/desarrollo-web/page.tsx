@@ -1,14 +1,15 @@
-import React from 'react';
+"use client"
 import { Metadata } from 'next';
-import { Check, ChevronDown, Wrench, Bug, Clock, ShieldCheck, Cpu, Zap, Rocket, Globe, Code2, Database, GitMerge, Search } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Check, ChevronDown, Cpu, Zap } from 'lucide-react';
 import { plans, faqs, maintenancePlans, pillars } from '@/src/constants/plansWeb';
 import { WHATSAPP_LINK } from '@/src/constants/number';
 
-export const metadata: Metadata = {
-    title: "Desarrollo Web & Ecosistemas Digitales | Sistemas Kinetix",
-    description: "Planes de desarrollo web diseñados bajo Pago por Valor Técnico. Entregamos una infraestructura optimizada para convertir visitantes en clientes.",
-    keywords: "Desarrollo web Barquisimeto, E-commerce Venezuela, Landing Page, Supabase, Diseño web profesional, n8n"
-};
+// export const metadata: Metadata = {
+//     title: "Desarrollo Web & Ecosistemas Digitales | Sistemas Kinetix",
+//     description: "Planes de desarrollo web diseñados bajo Pago por Valor Técnico. Entregamos una infraestructura optimizada para convertir visitantes en clientes.",
+//     keywords: "Desarrollo web Barquisimeto, E-commerce Venezuela, Landing Page, Supabase, Diseño web profesional, n8n"
+// };
 
 export default function DesarrolloWebPage() {
 
@@ -18,7 +19,12 @@ export default function DesarrolloWebPage() {
             <section className="pt-32 pb-20 px-6 gradient-hero text-text-inverted relative overflow-hidden">
                 <div className="absolute inset-0 noise-overlay"></div>
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-[128px] opacity-30 mix-blend-screen pointer-events-none animate-pulse-ring"></div>
-                <div className="max-w-7xl mx-auto relative z-10 text-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="max-w-7xl mx-auto relative z-10 text-center"
+                >
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
                         <span className="flex h-2 w-2 rounded-full bg-emerald shadow-[0_0_8px_rgba(0,199,143,0.8)]"></span>
                         <span className="text-sm font-semibold tracking-wide text-white/90 uppercase">Pago por Valor Técnico</span>
@@ -40,13 +46,19 @@ export default function DesarrolloWebPage() {
                             Consulta Gratuita
                         </a>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
             {/* Pillars Section */}
             <section className="py-24 px-6 bg-bg-base relative">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center max-w-3xl mx-auto mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="text-center max-w-3xl mx-auto mb-20"
+                    >
                         <span className="section-overline">Nuestra Metodología</span>
                         <h2 className="text-4xl md:text-5xl font-display text-text-primary mt-4 mb-6">
                             Pilares Estratégicos del Desarrollo
@@ -54,11 +66,18 @@ export default function DesarrolloWebPage() {
                         <p className="text-lg text-text-secondary leading-relaxed">
                             En Sistemas Kinetix, el desarrollo web no se trata solo de crear sitios visualmente atractivos, sino de construir infraestructuras digitales de alto rendimiento diseñadas para escalar negocios y automatizar procesos desde la primera línea de código.
                         </p>
-                    </div>
+                    </motion.div>
 
                     <div className="grid md:grid-cols-2 gap-8">
                         {pillars.map((pillar, idx) => (
-                            <div key={idx} className="card p-8 group hover:border-emerald/30">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                key={idx}
+                                className="card p-8 group hover:border-emerald/30"
+                            >
                                 <div className="w-14 h-14 rounded-2xl bg-surface-muted flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-emerald-light group-hover:text-emerald transition-all duration-300">
                                     {pillar.icon}
                                 </div>
@@ -66,7 +85,7 @@ export default function DesarrolloWebPage() {
                                 <p className="text-text-secondary leading-relaxed whitespace-pre-line">
                                     {pillar.description}
                                 </p>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
@@ -78,19 +97,29 @@ export default function DesarrolloWebPage() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary rounded-full blur-[150px] opacity-20 pointer-events-none"></div>
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10">
-                    <div className="text-center mb-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="text-center mb-16"
+                    >
                         <span className="section-overline text-primary">Precios de Inversión</span>
                         <h2 className="text-4xl md:text-5xl font-display text-text-inverted mt-4 mb-6">Planes de Desarrollo</h2>
                         <p className="text-text-muted max-w-2xl mx-auto text-lg">
                             Soluciones estructuradas que escalan con la visión de tu empresa.
                         </p>
-                    </div>
+                    </motion.div>
 
                     <div className="grid md:grid-cols-3 gap-8 items-stretch">
                         {plans.map((plan, i) => (
-                            <div
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: i * 0.1 }}
                                 key={i}
-                                className={`relative flex flex-col p-8 rounded-[24px] transition-all duration-300 ${plan.recommended ? 'bg-bg-dark-card border-2 border-primary transform md:-translate-y-4 shadow-primary' : 'bg-bg-dark border border-surface-border-dark hover:border-surface-border'}`}
+                                className={`relative flex flex-col p-8 rounded-[24px] transition-all duration-300 hover:scale-105 hover:z-10 ${plan.recommended ? 'bg-bg-dark-card border-2 border-primary transform md:-translate-y-4 shadow-primary' : 'bg-bg-dark border border-surface-border-dark hover:border-surface-border'}`}
                             >
                                 {plan.recommended && (
                                     <div className="absolute -top-4 left-0 right-0 flex justify-center">
@@ -130,7 +159,7 @@ export default function DesarrolloWebPage() {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
@@ -139,7 +168,13 @@ export default function DesarrolloWebPage() {
             {/* Upgrade de Inteligencia AI Box */}
             <section className="py-12 bg-bg-base relative">
                 <div className="max-w-4xl mx-auto px-6">
-                    <div className="glass-panel relative overflow-hidden p-1 bg-gradient-to-r from-emerald via-primary to-emerald rounded-3xl p-[2px]">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="glass-panel relative overflow-hidden p-1 bg-gradient-to-r from-emerald via-primary to-emerald rounded-3xl p-[2px]"
+                    >
                         <div className="bg-bg-dark rounded-[22px] p-8 md:p-12 relative flex flex-col md:flex-row items-center gap-8 z-10">
                             <div className="absolute inset-0 noise-overlay opacity-30"></div>
 
@@ -163,14 +198,20 @@ export default function DesarrolloWebPage() {
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Soporte y Modificaciones */}
             <section className="py-24 px-6 bg-surface-muted relative">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="text-center max-w-3xl mx-auto mb-16"
+                    >
                         <span className="section-overline">Soporte Continuo</span>
                         <h2 className="text-4xl font-display text-text-primary mt-4 mb-6">
                             Plan de Modificaciones y Soporte Personalizado
@@ -178,18 +219,25 @@ export default function DesarrolloWebPage() {
                         <p className="text-lg text-text-secondary">
                             Para clientes que ya tienen una web pero necesitan mejorarla o corregir errores.
                         </p>
-                    </div>
+                    </motion.div>
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {maintenancePlans.map((plan, idx) => (
-                            <div key={idx} className="card p-8 group hover:border-emerald/30">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                key={idx}
+                                className="card p-8 group hover:border-emerald/30 hover:scale-105 transition-all duration-300"
+                            >
                                 <div className="w-14 h-14 rounded-2xl bg-surface-muted flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-emerald-light group-hover:text-emerald transition-all duration-300">
                                     {plan.icon}
                                 </div>
                                 <h3 className="text-xl font-bold mb-4 text-text-primary">{plan.title}</h3>
                                 <div className="text-2xl font-display text-primary mb-2">{plan.price}</div>
                                 <p className="text-text-secondary leading-relaxed">{plan.desc}</p>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
@@ -207,7 +255,14 @@ export default function DesarrolloWebPage() {
 
                     <div className="space-y-4">
                         {faqs.map((faq, idx) => (
-                            <details key={idx} className="group card overflow-hidden cursor-pointer">
+                            <motion.details
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                                key={idx}
+                                className="group card overflow-hidden cursor-pointer"
+                            >
                                 <summary className="flex justify-between items-center font-bold list-none p-6 text-text-primary group-open:bg-surface-muted transition-colors">
                                     <span className="text-lg pr-8">{faq.question}</span>
                                     <span className="transition-transform duration-300 group-open:rotate-180 shrink-0">
@@ -217,7 +272,7 @@ export default function DesarrolloWebPage() {
                                 <div className="text-text-secondary p-6 pt-0 leading-relaxed border-t border-surface-border whitespace-pre-line">
                                     {faq.answer}
                                 </div>
-                            </details>
+                            </motion.details>
                         ))}
                     </div>
                 </div>

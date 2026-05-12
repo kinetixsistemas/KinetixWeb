@@ -1,16 +1,17 @@
-import React from 'react';
+"use client"
 import { Bot, Database, ChevronDown, GitMerge, } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Metadata } from 'next';
 import PricingSection from '@/src/components/PricingSection';
 import faqs from '@/src/constants/faqsAutom';
 import solutions from '@/src/constants/asutionsAutom';
 import benefits from '@/src/constants/benefiAutom';
 
-export const metadata: Metadata = {
-  title: "Sistemas Kinetix: Expertos en Automatización e IA para Negocios en Venezuela",
-  description: "Maximiza tus ventas con Sistemas Kinetix. Ofrecemos bots de WhatsApp con IA, automatización de procesos con n8n y desarrollo de software escalable en Barquisimeto. ¡Empieza hoy sin costo de instalación!",
-  keywords: "Automatización de WhatsApp Barquisimeto, Chatbots con IA Venezuela, n8n servicios de automatización, Agentes IA para inmobiliarias, Ventas en automático Lara"
-};
+// export const metadata: Metadata = {
+//   title: "Sistemas Kinetix: Expertos en Automatización e IA para Negocios en Venezuela",
+//   description: "Maximiza tus ventas con Sistemas Kinetix. Ofrecemos bots de WhatsApp con IA, automatización de procesos con n8n y desarrollo de software escalable en Barquisimeto. ¡Empieza hoy sin costo de instalación!",
+//   keywords: "Automatización de WhatsApp Barquisimeto, Chatbots con IA Venezuela, n8n servicios de automatización, Agentes IA para inmobiliarias, Ventas en automático Lara"
+// };
 
 export default function AutomatizacionPage() {
 
@@ -21,7 +22,12 @@ export default function AutomatizacionPage() {
       <section className="pt-32 pb-20 px-6 gradient-hero text-text-inverted relative overflow-hidden">
         <div className="absolute inset-0 noise-overlay"></div>
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary rounded-full blur-[128px] opacity-30 mix-blend-screen pointer-events-none animate-pulse-ring"></div>
-        <div className="max-w-7xl mx-auto relative z-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-7xl mx-auto relative z-10 text-center"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
             <span className="flex h-2 w-2 rounded-full bg-emerald shadow-[0_0_8px_rgba(0,199,143,0.8)]"></span>
             <span className="text-sm font-semibold tracking-wide text-white/90 uppercase">Revoluciona tus procesos</span>
@@ -45,13 +51,19 @@ export default function AutomatizacionPage() {
               Demo 15 dias gratis
             </a>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Solutions Section */}
       <section className="py-24 px-6 bg-bg-base relative">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center max-w-3xl mx-auto mb-20"
+          >
             <span className="section-overline">Nuestros Servicios</span>
             <h2 className="text-4xl md:text-5xl font-display text-text-primary mt-4 mb-6">
               Soluciones de Automatización con Inteligencia Artificial
@@ -59,11 +71,18 @@ export default function AutomatizacionPage() {
             <p className="text-lg text-text-secondary">
               Lleva tu negocio al siguiente nivel con la potencia de la IA y n8n. No solo instalamos software; diseñamos la arquitectura de eficiencia que tu empresa necesita para escalar en la era digital.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {solutions.map((solution, idx) => (
-              <div key={idx} className="card p-8 group hover:border-emerald/30">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                key={idx}
+                className="card p-8 group hover:border-emerald/30"
+              >
                 <div className="w-14 h-14 rounded-2xl bg-surface-muted flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-emerald-light group-hover:text-emerald transition-all duration-300">
                   {solution.icon}
                 </div>
@@ -71,7 +90,7 @@ export default function AutomatizacionPage() {
                 <p className="text-text-secondary leading-relaxed">
                   {solution.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -81,7 +100,12 @@ export default function AutomatizacionPage() {
       <section className="py-24 px-6 bg-surface-muted relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
               <span className="section-overline">¿Por qué nosotros?</span>
               <h2 className="text-4xl md:text-5xl font-display text-text-primary mt-4 mb-8">
                 Beneficios de elegir Sistemas Kinetix
@@ -99,8 +123,14 @@ export default function AutomatizacionPage() {
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="relative mt-12 lg:mt-0">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative mt-12 lg:mt-0"
+            >
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-emerald/20 rounded-3xl blur-3xl"></div>
 
               <div className="glass-panel relative z-10 p-2 rounded-[2rem] shadow-xl border border-white/40 bg-white/40">
@@ -116,7 +146,7 @@ export default function AutomatizacionPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -136,7 +166,14 @@ export default function AutomatizacionPage() {
 
           <div className="space-y-4 mb-16">
             {faqs.map((faq, idx) => (
-              <details key={idx} className="group card overflow-hidden cursor-pointer">
+              <motion.details
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                key={idx}
+                className="group card overflow-hidden cursor-pointer"
+              >
                 <summary className="flex justify-between items-center font-bold list-none p-6 text-text-primary group-open:bg-surface-muted transition-colors">
                   <span className="text-lg pr-8">{faq.question}</span>
                   <span className="transition-transform duration-300 group-open:rotate-180 shrink-0">
@@ -146,7 +183,7 @@ export default function AutomatizacionPage() {
                 <div className="text-text-secondary p-6 pt-0 leading-relaxed border-t border-surface-border whitespace-pre-line">
                   {faq.answer}
                 </div>
-              </details>
+              </motion.details>
             ))}
           </div>
 
