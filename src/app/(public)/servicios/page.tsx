@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { kinetixbanner } from '@/assets/index';
-import { WHATSAPP_LINK } from '@/constants/number';
+import { kinetixbanner } from '../../../assets/index';
+import { WHATSAPP_LINK } from '../../../constants/number';
 
 interface ServiceCardProps {
     title: string;

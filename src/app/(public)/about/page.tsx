@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { WHATSAPP_LINK } from '@/constants/number';
+import { WHATSAPP_LINK } from '../../../constants/number';
 
 export interface Expert {
     name: string;

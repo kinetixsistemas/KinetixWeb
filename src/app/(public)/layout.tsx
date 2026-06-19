@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "../globals.css";
 
-import Nav from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Nav from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 export const metadata: Metadata = {
   title: "Kinetix Sistemas — IA, Automatización & Desarrollo a Medida",

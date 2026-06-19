@@ -3,9 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import ProjectCard from '@/components/ProjectCard';
-import { bannerportafolio } from '@/assets/index';
-import { projects } from '@/constants/projects';
+import ProjectCard from '../../../components/ProjectCard';
+import { bannerportafolio } from '../../../assets/index';
+import { projects } from '../../../constants/projects';
 
 
 
