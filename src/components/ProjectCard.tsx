@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Project } from '@/src/constants/projects';
+import { Project } from '../constants/projects';
 import { Maximize2, X } from 'lucide-react'; // O usa tus iconos de Material
 
 export default function ProjectCard({ project }: { project: Project }) {
