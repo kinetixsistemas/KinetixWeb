@@ -1,10 +1,10 @@
 'use client';
 import React from "react";
 import { motion } from "framer-motion";
-import BentoCard from "@/components/BentoCard";
-import WhatsAppSimulator from "@/components/WhatsAppSimulator";
+import BentoCard from "../../components/BentoCard";
+import WhatsAppSimulator from "../../components/WhatsAppSimulator";
 import Link from "next/link";
-import { WHATSAPP_LINK } from "@/constants/number";
+import { WHATSAPP_LINK } from "../../constants/number";
 
 const coreServices = [
   {

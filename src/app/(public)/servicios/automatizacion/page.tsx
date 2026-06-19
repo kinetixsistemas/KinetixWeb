@@ -2,10 +2,10 @@
 import { Bot, Database, ChevronDown, GitMerge, } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Metadata } from 'next';
-import PricingSection from '@/components/PricingSection';
-import faqs from '@/constants/faqsAutom';
-import solutions from '@/constants/asutionsAutom';
-import benefits from '@/constants/benefiAutom';
+import PricingSection from '../../../../components/PricingSection';
+import faqs from '../../../../constants/faqsAutom';
+import solutions from '../../../../constants/asutionsAutom';
+import benefits from '../../../../constants/benefiAutom';
 
 // export const metadata: Metadata = {
 //   title: "Sistemas Kinetix: Expertos en Automatización e IA para Negocios en Venezuela",

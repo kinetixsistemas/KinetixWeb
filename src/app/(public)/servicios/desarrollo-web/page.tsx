@@ -1,8 +1,8 @@
 "use client"
 import { motion } from 'framer-motion';
 import { Check, ChevronDown, Cpu, Zap } from 'lucide-react';
-import { plans, faqs, maintenancePlans, pillars } from '@/constants/plansWeb';
-import { WHATSAPP_LINK } from '@/constants/number';
+import { plans, faqs, maintenancePlans, pillars } from '../../../../constants/plansWeb';
+import { WHATSAPP_LINK } from '../../../../constants/number';
 
 // export const metadata: Metadata = {
 //     title: "Desarrollo Web & Ecosistemas Digitales | Sistemas Kinetix",
