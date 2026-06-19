@@ -104,8 +104,8 @@ export default function Navbar() {
             </Link>
 
             {/* Dropdown Servicios (Hover Menu) */}
-            <div 
-              className="relative group/nav" 
+            <div
+              className="relative group/nav"
               onMouseEnter={() => setIsServiceOpen(true)}
               onMouseLeave={() => setIsServiceOpen(false)}
             >
@@ -155,48 +155,50 @@ export default function Navbar() {
                 {label}
               </Link>
             ))}
+            <div className="flex items-center gap-3">
+              <Link
+                href="/contacto"
+                rel="noopener noreferrer"
+                className="hidden md:flex btn-emerald text-sm px-5 py-2.5 !rounded-full !tracking-normal !normal-case !font-semibold"
+                aria-label="Contactar por WhatsApp"
+              >
+                <span className="material-symbols-outlined text-[18px]">contact_page</span>
+                Contactanos
+              </Link>
+            </div>
           </nav>
 
           {/* CTA + Mobile Toggle */}
-          <div className="flex items-center gap-3">
-            <a
-              rel="noopener noreferrer"
-              className="hidden md:flex btn-emerald text-sm px-5 py-2.5 !rounded-full !tracking-normal !normal-case !font-semibold"
-              aria-label="Contactar por WhatsApp"
-            >
-              <span className="material-symbols-outlined text-[18px]">computer</span>
-              Demo 15 dias Gratis
-            </a>
 
-            {/* Hamburger */}
-            <button
-              id="mobile-menu-toggle"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-expanded={isOpen}
-              aria-label="Abrir menú"
-              className="md:hidden flex flex-col gap-[5px] p-2 rounded-lg hover:bg-[var(--surface-muted)] transition-colors"
-            >
-              <span
-                className={`block w-5 h-0.5 bg-[var(--text-primary)] rounded-full transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-[7px]' : ''
-                  }`}
-              />
-              <span
-                className={`block w-5 h-0.5 bg-[var(--text-primary)] rounded-full transition-all duration-300 ${isOpen ? 'opacity-0 scale-x-0' : ''
-                  }`}
-              />
-              <span
-                className={`block w-5 h-0.5 bg-[var(--text-primary)] rounded-full transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''
-                  }`}
-              />
-            </button>
-          </div>
+          {/* Hamburger */}
+          <button
+            id="mobile-menu-toggle"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+            aria-label="Abrir menú"
+            className="md:hidden flex flex-col gap-[5px] p-2 rounded-lg hover:bg-[var(--surface-muted)] transition-colors"
+          >
+            <span
+              className={`block w-5 h-0.5 bg-[var(--text-primary)] rounded-full transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-[7px]' : ''
+                }`}
+            />
+            <span
+              className={`block w-5 h-0.5 bg-[var(--text-primary)] rounded-full transition-all duration-300 ${isOpen ? 'opacity-0 scale-x-0' : ''
+                }`}
+            />
+            <span
+              className={`block w-5 h-0.5 bg-[var(--text-primary)] rounded-full transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''
+                }`}
+            />
+          </button>
         </div>
-      </header>
+      </header >
 
       {/* Mobile Menu Overlay */}
-      <div
+      < div
         className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-          }`}
+          }`
+        }
         onClick={() => setIsOpen(false)}
         style={{ background: 'rgba(13, 15, 20, 0.5)', backdropFilter: 'blur(4px)' }}
       />
@@ -242,7 +244,20 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
+          <div className="flex items-center gap-3">
+            <Link
+              href="/contacto"
+              rel="noopener noreferrer"
+              className="flex btn-emerald text-sm px-5 py-2.5 !rounded-full !tracking-normal !normal-case !font-semibold"
+              aria-label="Contactar por WhatsApp"
+            >
+              <span className="material-symbols-outlined text-[18px]">contact_page</span>
+              Contactanos
+            </Link>
+
+          </div>
         </div>
+
       </nav>
 
       {/* Spacer so content doesn't sit under fixed header */}

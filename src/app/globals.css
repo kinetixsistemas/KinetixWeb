@@ -460,6 +460,30 @@ h3 {
   }
 }
 
+@layer utilities {
+  .nardo-base {
+    background-color: #DAD9DF;
+  }
+
+  .nardo-recessed {
+    background-color: #B1B3B9;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .nardo-raised {
+    background-color: #DAD9DF;
+    border-top: 1px solid #FFFFFF;
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #B1B3B9;
+    border-bottom: 1px solid #B1B3B9;
+  }
+
+  .glass-panel {
+    background: rgba(218, 217, 223, 0.7);
+    backdrop-filter: blur(12px);
+  }
+}
+
 .thumbnail {
   width: 300px;
   cursor: pointer;
@@ -500,4 +524,55 @@ h3 {
   height: 30px;
   cursor: pointer;
   border: none;
+}
+
+.container {
+  max-width: 350px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #0070f3;
+  /* Azul clásico de Next.js */
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+}
+
+.invalid {
+  color: #dc2626;
+  /* Rojo */
+}
+
+.valid {
+  color: #16a34a;
+  /* Verde */
 }
