@@ -6,7 +6,7 @@ const plans = [
         name: "Plan Presencia",
         subtitle: "Landing Page Pro",
         idealFor: "Promoción de un producto único o servicio profesional (ej. Bienes Raíces).",
-        price: 120,
+        price: 59.90,
         period: "pago único",
         features: [
             "Diseño de una sección (One Page)",
@@ -20,7 +20,7 @@ const plans = [
         name: "Plan Crecimiento",
         subtitle: "Web Catálogo & Servicios",
         idealFor: "Empresas con múltiples productos (Repuestos, Lubricantes, Menús).",
-        price: 250,
+        price: 249.90,
         period: "pago único",
         features: [
             "Hasta 5 secciones internas",
@@ -34,7 +34,7 @@ const plans = [
         name: "Plan Elite",
         subtitle: "E-commerce Full con IA",
         idealFor: "Tiendas que requieren facturación y control de stock en tiempo real.",
-        price: 450,
+        price: 449.90,
         period: "pago único",
         features: [
             "Carrito de compras completo",

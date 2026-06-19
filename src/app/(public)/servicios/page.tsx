@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { kinetixbanner } from '../../assets/index';
-import { WHATSAPP_LINK } from '../../constants/number';
+import { kinetixbanner } from '@/assets/index';
+import { WHATSAPP_LINK } from '@/constants/number';
 
 interface ServiceCardProps {
     title: string;
@@ -66,7 +66,7 @@ export default function ServiciosPage() {
                 />
 
                 <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-24">
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
@@ -112,7 +112,7 @@ export default function ServiciosPage() {
             {/* ── Core Services Bento Grid ── */}
             <section className="py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -129,7 +129,7 @@ export default function ServiciosPage() {
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
 
                         {/* Service 1: Web & Apps – Wide */}
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -207,7 +207,7 @@ export default function ServiciosPage() {
                         </motion.div>
 
                         {/* Service 4: n8n Automation */}
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -310,12 +310,12 @@ export default function ServiciosPage() {
                         'OpenAI API', 'WhatsApp Business API', 'PostgreSQL', 'Redis',
                         'Docker', 'AWS', 'Vercel', 'Tailwind CSS', 'LangChain',
                     ].map((tech, idx) => (
-                        <motion.span 
+                        <motion.span
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.3, delay: idx * 0.05 }}
-                            key={tech} 
+                            key={tech}
                             className="tech-chip cursor-default hover:border-[var(--emerald)] hover:text-[var(--emerald)] transition-colors duration-200"
                         >
                             {tech}

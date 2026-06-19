@@ -1,10 +1,10 @@
 'use client';
 import React from "react";
 import { motion } from "framer-motion";
-import BentoCard from "@/src/components/BentoCard";
-import WhatsAppSimulator from "@/src/components/WhatsAppSimulator";
+import BentoCard from "@/components/BentoCard";
+import WhatsAppSimulator from "@/components/WhatsAppSimulator";
 import Link from "next/link";
-import { WHATSAPP_LINK } from "@/src/constants/number";
+import { WHATSAPP_LINK } from "@/constants/number";
 
 const coreServices = [
   {
@@ -86,7 +86,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6 w-full py-16 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
 
             {/* LEFT: Copy */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -128,11 +128,11 @@ export default function Home() {
                   { value: '99.9%', label: 'Uptime' },
                   { value: '3x', label: 'Más rápido' },
                 ].map(({ value, label }, idx) => (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.3 + idx * 0.1 }}
-                    key={label} 
+                    key={label}
                     className="text-center p-3 rounded-xl bg-white/70 border border-[var(--surface-border)] shadow-sm"
                   >
                     <div className="text-2xl font-bold text-[var(--primary)]">{value}</div>
@@ -167,7 +167,7 @@ export default function Home() {
             </motion.div>
 
             {/* RIGHT: Visual Card */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -223,7 +223,7 @@ export default function Home() {
 
         {/* ── Services Bento Grid ── */}
         <section className="py-20 px-6 max-w-7xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -359,12 +359,12 @@ export default function Home() {
               { step: "03", icon: "code", title: "Desarrollo", desc: "Implementación ágil con entregas iterativas y feedback continuo." },
               { step: "04", icon: "rocket_launch", title: "Lanzamiento", desc: "Despliegue, monitoreo y soporte post-lanzamiento garantizado." },
             ].map(({ step, icon, title, desc }, idx) => (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                key={step} 
+                key={step}
                 className="card p-7 group"
               >
                 <div className="flex items-center gap-3 mb-5">

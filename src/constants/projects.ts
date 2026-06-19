@@ -1,4 +1,4 @@
-import { desarrolloWeb, desarrolloAgente, desarrolloRealState } from '@/src/assets/index';
+import { desarrolloWeb, desarrolloAgente, desarrolloRealState } from '@/assets/index';
 
 
 export interface Project {

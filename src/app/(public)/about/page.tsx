@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { WHATSAPP_LINK } from '@/src/constants/number';
+import { WHATSAPP_LINK } from '@/constants/number';
 
 export interface Expert {
     name: string;
@@ -70,7 +70,7 @@ export default function AboutPage() {
                 />
 
                 <div className="relative z-10 px-6 max-w-7xl mx-auto w-full py-24">
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
@@ -116,8 +116,8 @@ export default function AboutPage() {
                             { value: '99.9%', label: 'Uptime Garantizado' },
                             { value: '24/7', label: 'Soporte Activo' },
                         ].map(({ value, label }, idx) => (
-                            <motion.div 
-                                key={label} 
+                            <motion.div
+                                key={label}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -152,7 +152,7 @@ export default function AboutPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
                     {/* Story Card */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -192,7 +192,7 @@ export default function AboutPage() {
                     </motion.div>
 
                     {/* Cutting-edge Tech */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -243,12 +243,12 @@ export default function AboutPage() {
                             answer: "Comenzamos con un Diagnóstico Técnico profundo para entender las necesidades y cuellos de botella de tu negocio. Luego, diseñamos una propuesta arquitectónica detallada con los flujos de trabajo recomendados antes de escribir la primera línea de código."
                         }
                     ].map((faq, idx) => (
-                        <motion.details 
+                        <motion.details
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
-                            key={idx} 
+                            key={idx}
                             className="group card overflow-hidden cursor-pointer"
                         >
                             <summary className="flex justify-between items-center font-bold list-none p-6 text-[var(--text-primary)] group-open:bg-[var(--surface-muted)] transition-colors">
