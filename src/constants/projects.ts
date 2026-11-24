@@ -1,3 +1,4 @@
+import type { StaticImageData } from 'next/image';
 import { desarrolloWeb, desarrolloAgente, desarrolloRealState } from '../assets/index';
 
 
@@ -5,7 +6,7 @@ export interface Project {
     title: string;
     description: string;
     category: string;
-    image: any;
+    image: StaticImageData;
     link: string;
     span: string;
     tags?: string[];

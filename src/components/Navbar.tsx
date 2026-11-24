@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, startTransition } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
@@ -30,10 +30,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
-
   // cerra el dropdown de servicios al hacer clic fuera de el 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -46,14 +42,10 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
-    setIsOpen(false);
-    setIsServiceOpen(false);
+    startTransition(() => {
+      setIsOpen(false);
+      setIsServiceOpen(false);
+    });
   }, [pathname]);
 
   // Lock body scroll when mobile menu open

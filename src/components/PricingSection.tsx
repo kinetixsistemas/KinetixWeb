@@ -70,7 +70,7 @@ export default function PricingSection() {
           <span className="section-overline text-primary">Pricing</span>
           <h2 className="text-4xl md:text-5xl font-display text-text-inverted mt-4 mb-6">Pricing that grows with you</h2>
           <p className="text-text-muted max-w-2xl mx-auto text-lg">
-            Choose an affordable plan that's packed with the best features for engaging your audience, creating customer loyalty, and driving sales.
+            Choose an affordable plan that&apos;s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.
           </p>
 
           <div className="mt-10 inline-flex items-center p-1 bg-bg-dark-card border border-surface-border-dark rounded-full">

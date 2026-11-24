@@ -281,7 +281,7 @@ export default function Home() {
                   Eficiencia Operativa y Tiempo
                 </h3>
                 <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
-                  Kinetix no solo vende "tecnología", vende tiempo recuperado eliminando la carga de tareas repetitivas
+                  Kinetix no solo vende &quot;tecnología&quot;, vende tiempo recuperado eliminando la carga de tareas repetitivas
                   para que los dueños de negocio puedan enfocarse en el crecimiento, mientras la IA se encarga de la atención de sus clientes.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-2">

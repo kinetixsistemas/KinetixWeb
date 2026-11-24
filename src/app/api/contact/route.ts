@@ -1,11 +1,16 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-// Inicializamos Resend con la API Key guardada en variables de entorno
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
     try {
+        const apiKey = process.env.RESEND_API_KEY;
+        if (!apiKey) {
+            return NextResponse.json(
+                { success: false, error: "RESEND_API_KEY no configurada" },
+                { status: 500 }
+            );
+        }
+        const resend = new Resend(apiKey);
         const body = await request.json();
         const { nombre, empresa, servicio, mensaje } = body;
 
@@ -64,10 +69,10 @@ export async function POST(request: Request) {
 
         return NextResponse.json({ success: true, data }, { status: 200 });
 
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error crítico procesando Resend:", error);
         return NextResponse.json(
-            { success: false, error: error.message || "Internal Server Error" },
+            { success: false, error: error instanceof Error ? error.message : "Internal Server Error" },
             { status: 500 }
         );
     }

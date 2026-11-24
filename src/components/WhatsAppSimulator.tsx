@@ -80,12 +80,12 @@ const WhatsAppSimulator = () => {
       };
 
       setMessages((prev) => [...prev, botMessage]);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(error);
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: `Error: ${error.message}. Por favor verifica la configuración.`,
+        content: `Error: ${error instanceof Error ? error.message : 'Error desconocido'}. Por favor verifica la configuración.`,
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setMessages((prev) => [...prev, errorMessage]);
