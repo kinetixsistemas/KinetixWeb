@@ -1,163 +1,137 @@
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { kinetixLogo } from '../assets/index';
+import { services } from '../content/services';
+import { siteConfig } from '../config/site';
+import CTAButton from './ui/CTAButton';
 
 const footerLinks = {
-  servicios: [
-    { label: 'Desarrollo Web & Apps', href: '/servicios' },
-    { label: 'Chatbots con IA', href: '/servicios' },
-    { label: 'Automatización n8n', href: '/servicios' },
-    { label: 'SEO Avanzado', href: '/servicios' },
-  ],
+  servicios: services.map((service) => ({
+    label: service.name,
+    href: `/servicios/${service.slug}`,
+  })),
   empresa: [
-    { label: 'Nosotros', href: '/about' },
-    { label: 'Portafolio', href: '/portfolio' },
-    { label: 'Casos de Éxito', href: '/portfolio' },
-    { label: 'Blog', href: '#' },
+    { label: 'Nosotros', href: '/nosotros' },
+    { label: 'Portafolio', href: '/portafolio' },
+    { label: 'Demos', href: '/demos' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Cotizar', href: '/cotizar' },
   ],
   legal: [
-    { label: 'Política de Privacidad', href: '#' },
-    { label: 'Términos de Servicio', href: '#' },
-    { label: 'Cookies', href: '#' },
+    { label: 'Privacidad', href: '/privacidad' },
+    { label: 'Términos', href: '/terminos' },
+    { label: 'Cookies', href: '/cookies' },
+    { label: 'Descargo', href: '/descargo' },
   ],
 };
 
 const socialLinks = [
-  { icon: 'language', label: 'Web', href: '#' },
-  { icon: 'alternate_email', label: 'Email', href: 'mailto:info@kinetixsistemas.com' },
-  { icon: 'chat', label: 'WhatsApp', href: 'https://wa.me/584241234567' },
+  { label: 'Facebook', icon: 'facebook', href: siteConfig.social.facebook },
+  { label: 'Instagram', icon: 'photo_camera', href: siteConfig.social.instagram },
+  { label: 'TikTok', icon: 'music_note', href: siteConfig.social.tiktok },
 ];
 
-function Footer() {
+export default function Footer() {
   return (
     <footer className="bg-[var(--bg-dark)] text-white">
-
-      {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-
-          {/* Brand Column */}
+      <div className="mx-auto max-w-7xl px-6 pb-10 pt-16">
+        <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
-            <Link href="/" className="flex items-center gap-3 group mb-5">
+            <Link href="/" className="mb-5 flex items-center gap-3 group">
               <Image
                 src={kinetixLogo}
-                alt="Kinetix Sistemas"
-                width={42}
-                height={42}
-                className="rounded-xl"
+                alt="Logo de Kinetix Sistemas"
+                className="h-[42px] w-auto rounded-xl"
               />
-              <div className="flex flex-col leading-none">
-                <span className="text-[15px] font-bold tracking-tight text-white">KINETIX</span>
-                <span className="text-[10px] font-semibold tracking-[0.15em] text-white/50 uppercase">Sistemas</span>
-              </div>
+              <span className="flex flex-col leading-none">
+                <span className="text-[15px] font-bold tracking-tight">KINETIX</span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-white/50">Sistemas</span>
+              </span>
             </Link>
 
-            <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6 max-w-xs">
-              Transformamos tu negocio con soluciones de inteligencia artificial, automatización y desarrollo de software a medida.
+            <p className="mb-6 max-w-xs text-sm leading-relaxed text-white/60">
+              Páginas web, sistemas de inventario y ventas, software para clínicas dentales y automatización con IA en
+              WhatsApp. Desde Barquisimeto, Venezuela.
             </p>
 
-            {/* Socials */}
             <div className="flex gap-2">
-              {socialLinks.map(({ icon, label, href }) => (
+              {socialLinks.map(({ label, icon, href }) => (
                 <a
                   key={label}
                   href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 flex items-center justify-center rounded-lg bg-white/5 hover:bg-[var(--emerald)] border border-white/10 hover:border-[var(--emerald)] transition-all duration-200 group"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 transition-colors hover:border-[var(--emerald)] hover:bg-[var(--emerald)]"
                 >
-                  <span className="material-symbols-outlined text-[18px] text-white/60 group-hover:text-white transition-colors">
-                    {icon}
-                  </span>
+                  <span aria-hidden="true" className="material-symbols-outlined text-[18px] text-white/70">{icon}</span>
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Links Columns */}
-          <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          <div className="grid gap-8 md:col-span-8 sm:grid-cols-2 lg:grid-cols-4">
             <div>
-              <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-[var(--emerald)] mb-4">
-                Servicios
-              </p>
+              <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--emerald)]">Servicios</p>
               <ul className="space-y-2.5">
                 {footerLinks.servicios.map(({ label, href }) => (
-                  <li key={label}>
-                    <Link
-                      href={href}
-                      className="text-sm text-white/60 hover:text-white transition-colors duration-200"
-                    >
-                      {label}
-                    </Link>
+                  <li key={href}>
+                    <Link href={href} className="text-sm text-white/60 transition-colors hover:text-white">{label}</Link>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div>
-              <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-[var(--emerald)] mb-4">
-                Empresa
-              </p>
+              <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--emerald)]">Empresa</p>
               <ul className="space-y-2.5">
                 {footerLinks.empresa.map(({ label, href }) => (
-                  <li key={label}>
-                    <Link
-                      href={href}
-                      className="text-sm text-white/60 hover:text-white transition-colors duration-200"
-                    >
-                      {label}
-                    </Link>
+                  <li key={href}>
+                    <Link href={href} className="text-sm text-white/60 transition-colors hover:text-white">{label}</Link>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div>
-              <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-[var(--emerald)] mb-4">
-                Contacto
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-[var(--emerald)] text-[16px] mt-0.5">location_on</span>
-                  <span className="text-sm text-white/60 leading-snug">Venezuela</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-[var(--emerald)] text-[16px] mt-0.5">alternate_email</span>
-                  <a href="mailto:info@kinetixsistemas.com" className="text-sm text-white/60 hover:text-white transition-colors">
-                    info@kinetixsistemas.com
-                  </a>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="material-symbols-outlined text-[var(--emerald)] text-[16px] mt-0.5">chat</span>
-                  <a href="https://wa.me/584241234567" target="_blank" rel="noopener noreferrer" className="text-sm text-white/60 hover:text-white transition-colors">
-                    WhatsApp Business
-                  </a>
-                </li>
+              <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--emerald)]">Legal</p>
+              <ul className="space-y-2.5">
+                {footerLinks.legal.map(({ label, href }) => (
+                  <li key={href}>
+                    <Link href={href} className="text-sm text-white/60 transition-colors hover:text-white">{label}</Link>
+                  </li>
+                ))}
               </ul>
+            </div>
+
+            <div>
+              <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--emerald)]">Contacto</p>
+              <ul className="space-y-3 text-sm text-white/60">
+                <li>{siteConfig.location.city}, {siteConfig.location.state}, {siteConfig.location.country}</li>
+                <li>
+                  <a href={`mailto:${siteConfig.email}`} className="hover:text-white">{siteConfig.email}</a>
+                </li>
+                <li>{siteConfig.whatsapp.display}</li>
+                <li>{siteConfig.businessHours.summary}</li>
+              </ul>
+              <div className="mt-5">
+                <CTAButton ctaLocation="footer" variant="dark" className="!px-5 !py-2.5">
+                  Cotizar por WhatsApp
+                </CTAButton>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white/8">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-white/40">
-            © {new Date().getFullYear()} Kinetix Sistemas. Todos los derechos reservados.
+            © {new Date().getFullYear()} {siteConfig.name}. Todos los derechos reservados.
           </p>
-          <div className="flex gap-5">
-            {footerLinks.legal.map(({ label, href }) => (
-              <a key={label} href={href} className="text-xs text-white/40 hover:text-white/70 transition-colors">
-                {label}
-              </a>
-            ))}
-          </div>
+          <p className="text-xs text-white/40">Hecho en {siteConfig.location.city}, {siteConfig.location.country}</p>
         </div>
       </div>
     </footer>
   );
 }
-
-export default Footer;

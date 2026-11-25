@@ -202,15 +202,12 @@ const WhatsAppSimulator = () => {
                     <Image
                       src={kinetixLogo}
                       alt="Kinetix Sistemas Logo"
-                      width={24}
-                      height={24}
-                      className="rounded-xl transition-transform duration-300 group-hover:scale-105"
-                      priority
+                      className="h-6 w-auto rounded-xl transition-transform duration-300 group-hover:scale-105"
                     />
                     {/* <span className="material-symbols-outlined text-[#075E54] text-[18px]">smart_toy</span> */}
                   </div>
                   <div className="flex-1">
-                    <div className="text-white font-semibold text-sm">Kinex Agente IA</div>
+                    <div className="text-white font-semibold text-sm">Asistente Kinetix Sistemas</div>
                     <div className="text-white/70 text-[10px] flex items-center gap-1">
                       <span className="w-1.5 h-1.5 bg-[var(--emerald)] rounded-full" />
                       en línea

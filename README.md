@@ -1,83 +1,73 @@
-# Sistemas Kinetix - Plataforma Web 🚀
+# Kinetix Sistemas
 
-**Sistemas Kinetix** es una agencia tecnológica especializada en Inteligencia Artificial, Automatización de Procesos y Desarrollo de Software a medida. Este repositorio contiene la plataforma web principal, construida con las últimas tecnologías para garantizar alto rendimiento, escalabilidad y un diseño de vanguardia (Engineering Precision).
+Sitio web de Kinetix Sistemas, agencia en Barquisimeto, Lara, Venezuela. Construido con Next.js 16 (App Router), React 19, TypeScript y Tailwind CSS v4.
 
-## 🛠 Tecnologías Principales
+Dominio canónico: https://kinetixsistemas.com
 
-- **Framework:** [Next.js](https://nextjs.org/) (App Router)
-- **Lenguaje:** [TypeScript](https://www.typescriptlang.org/)
-- **Estilos:** [Tailwind CSS v4](https://tailwindcss.com/)
-- **Animaciones:** [Framer Motion](https://www.framer.com/motion/)
-- **Iconografía:** [Lucide React](https://lucide.dev/) / Material Symbols
-- **Correos Transaccionales:** [Resend](https://resend.com/)
+## Instalación
 
-## ✨ Características Clave
-
-- **Diseño Moderno y Responsivo:** Implementación de un sistema de diseño propio basado en variables CSS, con efectos *Glassmorphism*, temas adaptables y micro-interacciones.
-- **Formularios Dinámicos e Híbridos:** Sistema de captura de *leads* conectado a la API interna que envía notificaciones por correo electrónico a través de **Resend** y realiza redirección inteligente a WhatsApp de manera asíncrona.
-- **Animaciones Fluidas:** Transiciones suaves, apariciones escalonadas y efectos de scroll potenciados por Framer Motion para una experiencia *premium*.
-- **Arquitectura Escalable:** Estructura modular basada en el App Router de Next.js, separando lógica, presentación y manejo de APIs.
-- **SEO Optimizado:** Metadatos avanzados configurados de forma nativa para mejorar la visibilidad orgánica.
-
-## 🚀 Instalación y Desarrollo Local
-
-### Prerrequisitos
-
-- Node.js 18.17 o superior
-- npm, pnpm o yarn
-
-### Pasos
-
-1. **Clonar el repositorio:**
-   ```bash
-   git clone <URL_DEL_REPOSITORIO>
-   cd kinetixpage
-   ```
-
-2. **Instalar dependencias:**
-   ```bash
-   npm install
-   ```
-
-3. **Configurar variables de entorno:**
-   Crea un archivo `.env.local` en la raíz del directorio con las siguientes credenciales (necesarias para el funcionamiento del formulario de contacto):
-   ```env
-   RESEND_API_KEY=tu_api_key_de_resend_aqui
-   ```
-
-4. **Ejecutar el servidor de desarrollo:**
-   ```bash
-   npm run dev
-   ```
-   Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la web. Los cambios se actualizarán automáticamente.
-
-## 📁 Estructura del Proyecto
-
-```text
-src/
-├── app/                  # Enrutador principal (App Router)
-│   ├── (public)/         # Grupo de rutas para páginas públicas (contacto, servicios, etc.)
-│   ├── api/              # Rutas de la API de Next.js (backend serverless)
-│   ├── globals.css       # Sistema de diseño base, tokens globales y Tailwind v4
-│   └── layout.tsx        # Estructura principal y configuración de tipografías
-├── components/           # Componentes de UI reutilizables (Navbar, Footer, Pricing, etc.)
-├── constants/            # Datos estáticos de configuración (precios, FAQs, características)
-└── hooks/                # Hooks personalizados de React
+```bash
+npm install
 ```
 
-## 🌐 Despliegue
+Copia `.env.example` a `.env.local` y completa solo las variables que vayas a usar. El archivo `.env.local` está ignorado por Git; nunca subas credenciales al repositorio.
 
-La plataforma está optimizada para ser desplegada sin fricción en [Vercel](https://vercel.com).
+## Scripts
 
-1. Haz push de tus cambios a la rama principal (GitHub, GitLab, etc.).
-2. Importa el proyecto desde el panel de Vercel.
-3. Asegúrate de añadir la variable de entorno `RESEND_API_KEY` en la configuración del proyecto.
-4. Vercel se encargará de construir y desplegar la aplicación automáticamente.
+| Comando | Uso |
+| --- | --- |
+| `npm run dev` | Servidor de desarrollo en http://localhost:3000 |
+| `npm run build` | Generación de producción |
+| `npm run lint` | Revisión con ESLint |
 
-## 📞 Contacto y Soporte
+## Variables de entorno
 
-- **Email Oficial:** kinetixsistemas@gmail.com
-- **Ubicación:** Barquisimeto, Edo. Lara, Venezuela
+| Variable | Cuándo es necesaria | Uso |
+| --- | --- | --- |
+| `GROQ_API_KEY` | Opcional | Credencial usada por la API de chat (`/api/chat`). |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | Necesaria para el chat | Número usado en los enlaces de WhatsApp. |
+| `NEXT_PUBLIC_GA_ID` | Opcional | Google Analytics 4. |
+| `NEXT_PUBLIC_CLARITY_ID` | Opcional | Microsoft Clarity. |
+| `NEXT_PUBLIC_META_PIXEL_ID` | Opcional | Meta Pixel. |
+| `NEXT_PUBLIC_TIKTOK_PIXEL_ID` | Opcional | TikTok Pixel. |
+| `NEXT_PUBLIC_GTM_ID` | Opcional | Google Tag Manager. |
 
----
-*© 2024 Sistemas Kinetix. Engineering Precision.*
+Si una variable de analítica no está definida, su herramienta no se carga.
+
+## Arquitectura de datos
+
+- `src/config/site.ts`: datos globales (nombre, URL, correo, WhatsApp, horario, ubicación, fundador y redes).
+- `src/content/*`: contenido editable (servicios, casos, preguntas, precios y reseñas de Google Maps).
+- `src/lib/*`: metadatos, enlaces de WhatsApp, atribución, datos estructurados y consentimiento.
+
+El formulario de `/cotizar` valida los datos y abre WhatsApp con el resumen de la solicitud; no depende de un servicio de correo.
+
+Las páginas legales viven en `src/app/(public)/` y mantienen su aviso de contenido pendiente de confirmación por parte de Kinetix Sistemas.
+
+## Analítica y consentimiento
+
+El sitio usa Consent Mode v2: el estado inicial niega el almacenamiento de analítica y publicidad. GA4, Clarity, Meta Pixel, TikTok Pixel y GTM solo se cargan si su variable está definida y el visitante acepta. Nada se activa antes del consentimiento.
+
+La elección se guarda en `localStorage` bajo `kinetix-cookie-consent`. Para volver a elegir, elimina los datos del sitio en el navegador y abre la página de nuevo.
+
+## Verificación en Search Console
+
+En Google Search Console, registra el dominio `kinetixsistemas.com` y usa uno de estos métodos:
+
+- Subir el archivo HTML de verificación a `public/` para que quede disponible en la raíz del dominio.
+- Añadir un registro TXT en el DNS con el valor entregado por Google para el dominio raíz.
+
+Completa la verificación desde Search Console después de publicar.
+
+## Despliegue en Vercel
+
+- Importa el repositorio y configura las variables de entorno del proyecto.
+- Asigna `kinetixsistemas.com` como dominio de producción.
+- Los canónicos apuntan a ese dominio desde `src/lib/metadata.ts`.
+- Los deployments de preview se publican con `noindex, nofollow` cuando `VERCEL_ENV` es `preview`.
+
+## Contacto
+
+- Correo: kinetixsistemas@gmail.com
+- WhatsApp: +58 412 5353950
+- Ubicación: Barquisimeto, Lara, Venezuela

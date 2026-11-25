@@ -1,0 +1,41 @@
+Kinetix Sistemas
+https://kinetixsistemas.com
+
+Quiénes somos
+Kinetix Sistemas es una agencia de desarrollo de software y automatización ubicada en Barquisimeto, Lara, Venezuela. Crea páginas web, sistemas de inventario y ventas, software para clínicas dentales y agentes de WhatsApp con inteligencia artificial. Trabaja con Next.js, React, TypeScript, Supabase/PostgreSQL, n8n y Evolution API según el proyecto. Cada proyecto se cotiza de forma personalizada; no se publica un precio único.
+
+Contacto
+Correo: kinetixsistemas@gmail.com
+WhatsApp: +58 412 5353950
+Ubicación: Barquisimeto, Lara, Venezuela
+
+Servicios
+- Sistema para clínicas odontológicas: historia clínica, odontograma, periodontograma, presupuestos, pagos y agenda. https://kinetixsistemas.com/servicios/sistema-clinicas-odontologicas
+- Sistemas PWA de inventario y ventas: instalables en móvil, tablet y PC, con stock, clientes, ventas y cobranza. https://kinetixsistemas.com/servicios/sistemas-pwa-inventario-ventas
+- Plataforma B2B mayorista: catálogo y sistema interno con roles de administrador, vendedor y cliente mayorista. https://kinetixsistemas.com/servicios/plataforma-b2b-mayorista
+- Páginas de repuestos al mayor: catálogo por categoría y marca, precios al mayor y pedidos por WhatsApp. https://kinetixsistemas.com/servicios/paginas-repuestos-al-mayor
+- Desarrollo de páginas web: landing pages y sitios corporativos con SEO básico y WhatsApp integrado. https://kinetixsistemas.com/servicios/desarrollo-web
+- Automatización con IA e integraciones: agentes de WhatsApp y flujos con n8n. https://kinetixsistemas.com/servicios/automatizacion-ia-whatsapp
+
+Demos
+- Demo del sistema odontológico: https://demodonto.kinetixsistemas.com/
+- Simulador del agente de WhatsApp con IA y demostraciones publicadas: https://kinetixsistemas.com/demos
+
+Casos públicos
+Los nombres de clientes privados se mantienen de forma anónima.
+
+- Distribuidora de alimentos en Venezuela: e-commerce y panel administrativo con inventario y lista de precios. https://kinetixsistemas.com/portafolio/distribuidora-super-carabobo
+- Importadora de repuestos de motos en Venezuela: catálogo de venta al mayor organizado por categorías. https://kinetixsistemas.com/portafolio/vtr-import
+- Sistema de inventario y facturación para un negocio en Venezuela. https://kinetixsistemas.com/portafolio/sistema-inventario-facturacion
+- Sistema de logística para una empresa de transporte: camiones, viajes, viáticos y pagos a choferes. https://kinetixsistemas.com/portafolio/sistema-logistica-transporte
+- Sistema para consultorio odontológico: historia clínica, odontograma, presupuestos y agenda. https://kinetixsistemas.com/portafolio/sistema-consultorio-odontologico
+- Simulador de agente de WhatsApp con IA: demostración, no caso de cliente. https://kinetixsistemas.com/portafolio/agente-whatsapp-ia
+
+Artículos
+- Cómo llevar el inventario de un negocio sin Excel. https://kinetixsistemas.com/blog/inventario-sin-excel
+- Qué es una PWA y por qué conviene para tu negocio. https://kinetixsistemas.com/blog/que-es-una-pwa
+- Software para consultorio dental: qué debe incluir. https://kinetixsistemas.com/blog/software-consultorio-dental
+- Cuánto cuesta una página web en Venezuela. https://kinetixsistemas.com/blog/cuanto-cuesta-pagina-web-venezuela
+- Cómo vender al mayor por internet (catálogo B2B). https://kinetixsistemas.com/blog/vender-al-mayor-internet-catalogo-b2b
+- WhatsApp Business API vs WhatsApp normal: diferencias. https://kinetixsistemas.com/blog/whatsapp-business-api-vs-normal
+- Cómo un agente de IA atiende clientes por WhatsApp. https://kinetixsistemas.com/blog/agente-ia-whatsapp

@@ -1,13 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'lh3.googleusercontent.com',
-        pathname: '**',
-      },
-    ],
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      { source: '/about', destination: '/nosotros', permanent: true },
+      { source: '/servicios/automatizacion', destination: '/servicios/automatizacion-ia-whatsapp', permanent: true },
+      { source: '/portfolio', destination: '/portafolio', permanent: true },
+    ];
   },
 };
 
