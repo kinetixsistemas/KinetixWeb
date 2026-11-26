@@ -1,8 +1,4 @@
-'use client';
-
-import type { MouseEvent, ReactNode } from 'react';
-import { trackEvent } from '../../lib/analytics';
-import { getAttribution } from '../../lib/attribution';
+import type { ReactNode } from 'react';
 import { buildWhatsAppLink } from '../../lib/whatsapp';
 
 interface CTAButtonProps {
@@ -28,22 +24,15 @@ export default function CTAButton({
   className = '',
   variant = 'primary',
 }: CTAButtonProps) {
-  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    const source = getAttribution()?.utm_source;
-    event.currentTarget.href = buildWhatsAppLink({ service, source, ctaLocation, pagePath });
-    trackEvent('whatsapp_click', {
-      cta_location: ctaLocation,
-      page_path: pagePath,
-      service,
-    });
-  };
+  const params = JSON.stringify({ cta_location: ctaLocation, page_path: pagePath, service });
 
   return (
     <a
       href={buildWhatsAppLink({ service, ctaLocation, pagePath })}
+      data-track-event="whatsapp_click"
+      data-track-params={params}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={handleClick}
       className={`inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold transition-all duration-200 ${variants[variant]} ${className}`}
     >
       {children}

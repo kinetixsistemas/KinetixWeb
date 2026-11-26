@@ -1,5 +1,7 @@
 "use client";
 
+import MaterialIcon from './ui/MaterialIcon';
+
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
 import { kinetixLogo } from "../assets";
@@ -108,7 +110,7 @@ const WhatsAppSimulator = () => {
           {/* Left: Copy */}
           <div className="md:col-span-6">
             <div className="badge badge-emerald mb-5">
-              <span className="material-symbols-outlined text-[14px]">smart_toy</span>
+              <MaterialIcon name="smart_toy" className="text-[14px]" />
               Demo Interactivo
             </div>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-5 leading-tight">
@@ -158,9 +160,7 @@ const WhatsAppSimulator = () => {
                     className="w-10 h-10 flex items-center justify-center rounded-xl flex-shrink-0 transition-colors duration-300 group-hover:bg-[var(--emerald)]"
                     style={{ background: "var(--emerald-light)" }}
                   >
-                    <span className="material-symbols-outlined text-[var(--emerald)] text-[18px] group-hover:text-black transition-colors">
-                      {icon}
-                    </span>
+                    <MaterialIcon name={icon} className="text-[var(--emerald)] text-[18px] group-hover:text-black transition-colors" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-[var(--text-primary)] mb-1">{title}</h4>
@@ -191,8 +191,8 @@ const WhatsAppSimulator = () => {
                 <div className="bg-[var(--bg-dark)] h-6 flex items-center justify-between px-5">
                   <span className="text-[10px] text-white/60 font-medium">9:41</span>
                   <div className="flex items-center gap-1">
-                    <span className="material-symbols-outlined text-white/60 text-[12px]">signal_cellular_alt</span>
-                    <span className="material-symbols-outlined text-white/60 text-[12px]">battery_5_bar</span>
+                    <MaterialIcon name="signal_cellular_alt" className="text-white/60 text-[12px]" />
+                    <MaterialIcon name="battery_5_bar" className="text-white/60 text-[12px]" />
                   </div>
                 </div>
 
@@ -202,9 +202,10 @@ const WhatsAppSimulator = () => {
                     <Image
                       src={kinetixLogo}
                       alt="Kinetix Sistemas Logo"
+                      sizes="24px"
                       className="h-6 w-auto rounded-xl transition-transform duration-300 group-hover:scale-105"
                     />
-                    {/* <span className="material-symbols-outlined text-[#075E54] text-[18px]">smart_toy</span> */}
+                    {/* <MaterialIcon name="smart_toy" className="text-[#075E54] text-[18px]" /> */}
                   </div>
                   <div className="flex-1">
                     <div className="text-white font-semibold text-sm">Asistente Kinetix Sistemas</div>
@@ -214,8 +215,8 @@ const WhatsAppSimulator = () => {
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <span className="material-symbols-outlined text-white/80 text-[18px]">videocam</span>
-                    <span className="material-symbols-outlined text-white/80 text-[18px]">call</span>
+                    <MaterialIcon name="videocam" className="text-white/80 text-[18px]" />
+                    <MaterialIcon name="call" className="text-white/80 text-[18px]" />
                   </div>
                 </div>
 
@@ -241,7 +242,7 @@ const WhatsAppSimulator = () => {
                         <div className={`flex items-center gap-1 mt-1 ${msg.role === 'user' ? 'justify-end' : 'justify-end'}`}>
                           <span className="text-[9px] text-gray-400">{msg.time}</span>
                           {msg.role === 'user' && (
-                            <span className="material-symbols-outlined text-[#4FC3F7] text-[12px]">done_all</span>
+                            <MaterialIcon name="done_all" className="text-[#4FC3F7] text-[12px]" />
                           )}
                         </div>
                       </div>
@@ -278,7 +279,7 @@ const WhatsAppSimulator = () => {
                     </div>
                   )}
 
-                  <span className="material-symbols-outlined text-gray-500 text-[20px] cursor-pointer">add_circle</span>
+                  <MaterialIcon name="add_circle" className="text-gray-500 text-[20px] cursor-pointer" />
                   <input
                     type="text"
                     value={inputValue}
@@ -294,7 +295,7 @@ const WhatsAppSimulator = () => {
                     className="w-9 h-9 flex items-center justify-center rounded-full disabled:opacity-50 transition-opacity cursor-pointer flex-shrink-0 shadow-sm"
                     style={{ background: "#25D366" }}
                   >
-                    <span className="material-symbols-outlined text-white text-[16px] ml-1">send</span>
+                    <MaterialIcon name="send" className="text-white text-[16px] ml-1" />
                   </button>
                 </div>
               </div>

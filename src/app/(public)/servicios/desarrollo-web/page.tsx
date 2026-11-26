@@ -1,3 +1,4 @@
+import MaterialIcon from '../../../../components/ui/MaterialIcon';
 import Link from 'next/link';
 import { createMetadata } from '../../../../lib/metadata';
 import { breadcrumbSchema, faqSchema, serviceSchema } from '../../../../lib/structured-data';
@@ -34,6 +35,11 @@ export default function ServicePage() {
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-[var(--emerald)]">{service.audience}</p>
           <h1 className="font-display text-4xl font-bold leading-tight text-[var(--text-primary)] md:text-6xl">{service.name}</h1>
           <p className="mt-6 text-lg leading-relaxed text-[var(--text-secondary)]">{service.summary}</p>
+          <p className="mt-4 text-sm font-bold text-[var(--primary)]">
+            <Link href="/diseno-web-venezuela" className="underline underline-offset-4 hover:text-[var(--emerald)]">
+              Ver diseño web en Venezuela con planes y precios →
+            </Link>
+          </p>
           <div className="mt-8">
             <CTAButton ctaLocation="service_hero" pagePath={`/servicios/${SLUG}`} service={service.name}>
               {service.cta}
@@ -48,7 +54,7 @@ export default function ServicePage() {
             <ul className="mt-6 space-y-4">
               {service.problems.map((problem) => (
                 <li key={problem} className="flex gap-3 text-[var(--text-secondary)]">
-                  <span className="material-symbols-outlined text-[var(--emerald)]" aria-hidden="true">check_circle</span>
+                  <MaterialIcon name="check_circle" className="text-[var(--emerald)]" />
                   <span className="leading-relaxed">{problem}</span>
                 </li>
               ))}
@@ -59,7 +65,7 @@ export default function ServicePage() {
             <ul className="mt-6 space-y-4">
               {service.includes.map((item) => (
                 <li key={item} className="flex gap-3 text-[var(--text-secondary)]">
-                  <span className="material-symbols-outlined text-[var(--primary)]" aria-hidden="true">add_circle</span>
+                  <MaterialIcon name="add_circle" className="text-[var(--primary)]" />
                   <span className="leading-relaxed">{item}</span>
                 </li>
               ))}

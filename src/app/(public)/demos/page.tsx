@@ -1,3 +1,4 @@
+import MaterialIcon from '../../../components/ui/MaterialIcon';
 import type { Metadata } from 'next';
 import Breadcrumbs from '../../../components/ui/Breadcrumbs';
 import CTAButton from '../../../components/ui/CTAButton';
@@ -83,9 +84,7 @@ export default function DemosPage() {
           <ul className="grid gap-3 rounded-3xl border border-[var(--surface-border)] bg-[var(--bg-base)] p-8 sm:grid-cols-2">
             {['Historia clínica', 'Agenda de citas', 'Odontograma', 'Presupuestos y pagos'].map((item) => (
               <li key={item} className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
-                <span className="material-symbols-outlined text-[var(--emerald)]" aria-hidden="true">
-                  check_circle
-                </span>
+                <MaterialIcon name="check_circle" className="text-[var(--emerald)]" />
                 {item}
               </li>
             ))}

@@ -1,3 +1,4 @@
+import MaterialIcon from './ui/MaterialIcon';
 import Link from 'next/link';
 import Image from 'next/image';
 import { kinetixLogo } from '../assets/index';
@@ -41,6 +42,7 @@ export default function Footer() {
               <Image
                 src={kinetixLogo}
                 alt="Logo de Kinetix Sistemas"
+                sizes="42px"
                 className="h-[42px] w-auto rounded-xl"
               />
               <span className="flex flex-col leading-none">
@@ -64,7 +66,7 @@ export default function Footer() {
                   aria-label={label}
                   className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 transition-colors hover:border-[var(--emerald)] hover:bg-[var(--emerald)]"
                 >
-                  <span aria-hidden="true" className="material-symbols-outlined text-[18px] text-white/70">{icon}</span>
+                  <MaterialIcon name={icon} className="text-[18px] text-white/70" />
                 </a>
               ))}
             </div>

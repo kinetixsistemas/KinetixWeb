@@ -239,7 +239,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: 'cuanto-cuesta-pagina-web-venezuela',
-    title: 'Cuánto cuesta una página web en Venezuela',
+    title: 'Precios Páginas Web en Venezuela',
     description:
       'Qué variables influyen en el precio de una página web en Venezuela y por qué cada proyecto se cotiza según su alcance real.',
     publishedTime: '2026-10-26',

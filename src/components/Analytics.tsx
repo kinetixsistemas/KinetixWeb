@@ -2,8 +2,9 @@
 
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
-import { captureAttribution } from '../lib/attribution';
-import { getConsent, trackEvent } from '../lib/analytics';
+import { captureAttribution, getAttribution } from '../lib/attribution';
+import { getConsent, trackEvent, type AnalyticsEventName, type AnalyticsParams } from '../lib/analytics';
+import { buildWhatsAppLink } from '../lib/whatsapp';
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
@@ -20,6 +21,38 @@ export default function Analytics() {
     sync();
     window.addEventListener('kinetix-consent-change', sync);
     return () => window.removeEventListener('kinetix-consent-change', sync);
+  }, []);
+
+  useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      const element = event.target instanceof Element ? event.target.closest<HTMLElement>('[data-track-event]') : null;
+      if (!element) return;
+
+      const name = element.dataset.trackEvent as AnalyticsEventName;
+      let params: AnalyticsParams = {};
+      try {
+        params = element.dataset.trackParams ? JSON.parse(element.dataset.trackParams) : {};
+      } catch {
+        params = {};
+      }
+
+      if (name === 'whatsapp_click') {
+        element.setAttribute(
+          'href',
+          buildWhatsAppLink({
+            service: params.service as string | undefined,
+            ctaLocation: params.cta_location as string | undefined,
+            pagePath: params.page_path as string | undefined,
+            source: getAttribution()?.utm_source,
+          }),
+        );
+      }
+
+      trackEvent(name, params);
+    };
+
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
   }, []);
 
   useEffect(() => {

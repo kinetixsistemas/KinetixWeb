@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 
 import Nav from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import Analytics from '../../components/Analytics';
-import CookieBanner from '../../components/CookieBanner';
+import SiteScripts from '../../components/SiteScripts';
 import StructuredData from '../../components/ui/StructuredData';
 import { siteConfig } from '../../config/site';
 import { createMetadata } from '../../lib/metadata';
@@ -19,11 +18,10 @@ export default function PublicLayout({ children }: Readonly<{ children: React.Re
   return (
     <>
       <StructuredData data={[organizationSchema(), websiteSchema()]} />
-      <Analytics />
+      <SiteScripts />
       <Nav />
-      <div className="flex-1">{children}</div>
+      <main className="flex-1">{children}</main>
       <Footer />
-      <CookieBanner />
     </>
   );
 }

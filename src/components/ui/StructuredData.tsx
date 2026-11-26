@@ -1,5 +1,3 @@
-import Script from 'next/script';
-
 export interface JsonLd {
   '@context': 'https://schema.org';
   '@type': string | string[];
@@ -8,7 +6,7 @@ export interface JsonLd {
 
 export default function StructuredData({ data, id = 'structured-data' }: { data: JsonLd | JsonLd[]; id?: string }) {
   return (
-    <Script
+    <script
       id={id}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, '\\u003c') }}

@@ -1,3 +1,4 @@
+import MaterialIcon from '../../../components/ui/MaterialIcon';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -69,6 +70,7 @@ export default function NosotrosPage() {
           <Image
             src={kinetixLogo}
             alt="Logo de Kinetix Sistemas"
+            sizes="56px"
             className="h-14 w-auto rounded-xl object-contain"
           />
           <div>
@@ -167,10 +169,8 @@ export default function NosotrosPage() {
               className="flex flex-col rounded-2xl border border-[var(--surface-border)] bg-[var(--bg-base)] p-6"
             >
               <div className="flex gap-1 text-[var(--emerald)]" aria-label={`${review.rating} de 5 estrellas`}>
-                {Array.from({ length: review.rating }).map((_, index) => (
-                  <span key={index} className="material-symbols-outlined text-xl" aria-hidden="true">
-                    star
-                  </span>
+                {[1, 2, 3, 4, 5].slice(0, review.rating).map((star) => (
+                  <MaterialIcon key={star} name="star" className="text-xl" />
                 ))}
               </div>
               <p className="mt-4 flex-1 leading-relaxed text-[var(--text-primary)]">“{review.quote}”</p>

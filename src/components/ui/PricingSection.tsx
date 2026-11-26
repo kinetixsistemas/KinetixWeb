@@ -1,3 +1,4 @@
+import MaterialIcon from './MaterialIcon';
 import Link from 'next/link';
 import { displayPrice, webPlans, deliveryTime } from '../../content/pricing';
 
@@ -25,9 +26,7 @@ export default function PricingSection() {
             <ul className="mt-5 flex-1 space-y-2">
               {plan.features.map((feature) => (
                 <li key={feature} className="flex gap-2 text-sm leading-relaxed text-[var(--text-secondary)]">
-                  <span className="material-symbols-outlined text-[var(--emerald)]" aria-hidden="true">
-                    check_circle
-                  </span>
+                  <MaterialIcon name="check_circle" className="text-[var(--emerald)]" />
                   <span>{feature}</span>
                 </li>
               ))}

@@ -292,8 +292,9 @@ export const services: Service[] = [
         answer: 'Sí. Preparamos el sitio para conectar analítica con los IDs que nos proporciones, con consentimiento previo del visitante.',
       },
       {
-        question: '¿Cuánto cuesta?',
-        answer: 'Los planes publicados están pendientes de confirmación. Mientras tanto, trabajamos con cotización personalizada.',
+        question: '¿Cuánto cuesta una página web en Venezuela?',
+        answer:
+          'Los planes van desde $149 (Start Conversion), $249 (Business Pro) y $499 (Elite Corporate). Incluyen SEO básico, diseño adaptable a móvil, WhatsApp y compra de dominio, con entrega en 3 a 5 días.',
       },
     ],
     related: ['paginas-repuestos-al-mayor', 'sistemas-pwa-inventario-ventas'],

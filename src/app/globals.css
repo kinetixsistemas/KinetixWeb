@@ -143,6 +143,7 @@ h3 {
   src: url('/fonts/material-icons-outlined.woff2') format('woff2');
 }
 
+.material-icon,
 .material-symbols-outlined {
   font-family: 'Material Icons Outlined';
   font-weight: normal;

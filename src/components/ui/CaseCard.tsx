@@ -1,7 +1,5 @@
-'use client';
-
+import MaterialIcon from './MaterialIcon';
 import Link from 'next/link';
-import { trackEvent } from '../../lib/analytics';
 import { caseTitle, type CaseStudy } from '../../content/cases';
 
 interface CaseCardProps {
@@ -10,14 +8,12 @@ interface CaseCardProps {
 
 export default function CaseCard({ item }: CaseCardProps) {
   const title = caseTitle(item);
-
-  const handleClick = () => {
-    if (item.link) {
-      trackEvent('portfolio_link_click', { case_slug: item.slug });
-    }
-    if (item.demo) {
-      trackEvent('demo_open', { demo_name: item.slug });
-    }
+  const tracking = item.demo
+    ? { event: 'demo_open', params: JSON.stringify({ demo_name: item.slug }) }
+    : { event: 'portfolio_link_click', params: JSON.stringify({ case_slug: item.slug }) };
+  const dataAttributes = {
+    'data-track-event': tracking.event,
+    'data-track-params': tracking.params,
   };
 
   const content = (
@@ -25,11 +21,11 @@ export default function CaseCard({ item }: CaseCardProps) {
       <div className="relative aspect-video overflow-hidden rounded-2xl bg-[var(--bg-dark)]">
         {item.screenshotVisible && item.image ? (
           <div className="flex h-full items-center justify-center text-6xl text-white/20" aria-hidden="true">
-            <span className="material-symbols-outlined">code</span>
+            <MaterialIcon name="code" />
           </div>
         ) : (
           <div className="flex h-full flex-col items-center justify-center gap-2 text-white/40" aria-hidden="true">
-            <span className="material-symbols-outlined text-5xl">work</span>
+            <MaterialIcon name="work" className="text-5xl" />
             <span className="text-xs uppercase tracking-widest">{item.type}</span>
           </div>
         )}
@@ -52,7 +48,7 @@ export default function CaseCard({ item }: CaseCardProps) {
         href={item.demo.href}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={handleClick}
+        {...dataAttributes}
         className="group block"
       >
         {content}
@@ -62,14 +58,14 @@ export default function CaseCard({ item }: CaseCardProps) {
 
   if (item.link) {
     return (
-      <a href={item.link} target="_blank" rel="noopener noreferrer" onClick={handleClick} className="group block">
+      <a href={item.link} target="_blank" rel="noopener noreferrer" {...dataAttributes} className="group block">
         {content}
       </a>
     );
   }
 
   return (
-    <Link href={`/portafolio/${item.slug}`} onClick={handleClick} className="group block">
+    <Link href={`/portafolio/${item.slug}`} {...dataAttributes} className="group block">
       {content}
     </Link>
   );

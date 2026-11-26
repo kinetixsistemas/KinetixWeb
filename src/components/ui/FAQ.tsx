@@ -1,3 +1,4 @@
+import MaterialIcon from './MaterialIcon';
 import type { FaqItem } from '../../content/faqs';
 
 interface FAQProps {
@@ -11,12 +12,7 @@ export default function FAQ({ items }: FAQProps) {
         <details key={item.question} className="group py-5">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-semibold text-[var(--text-primary)] marker:content-none">
             {item.question}
-            <span
-              aria-hidden="true"
-              className="material-symbols-outlined shrink-0 text-[var(--emerald)] transition-transform group-open:rotate-45"
-            >
-              add
-            </span>
+            <MaterialIcon name="add" className="shrink-0 text-[var(--emerald)] transition-transform group-open:rotate-45" />
           </summary>
           <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">{item.answer}</p>
         </details>

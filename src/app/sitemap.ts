@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     entry('/', { changeFrequency: 'weekly', priority: 1 }),
+    entry('/diseno-web-venezuela', { changeFrequency: 'weekly', priority: 0.9 }),
     entry('/servicios', { priority: 0.9 }),
     ...services.map((service) => entry(`/servicios/${service.slug}`, { priority: 0.8 })),
     entry('/portafolio', { priority: 0.8 }),

@@ -87,6 +87,12 @@ export default function DesarrolloWebBarquisimetoPage() {
             >
               Ver todos los detalles del desarrollo web
             </Link>
+            <Link
+              href="/diseno-web-venezuela"
+              className="mt-3 block text-sm font-bold text-[var(--primary)] underline underline-offset-4 hover:text-[var(--emerald)]"
+            >
+              Ver diseño web en Venezuela y precios →
+            </Link>
           </div>
         </div>
       </Section>

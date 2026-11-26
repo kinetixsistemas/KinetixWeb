@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { createMetadata } from '../../../lib/metadata';
 import { services } from '../../../content/services';
 import Section from '../../../components/ui/Section';
@@ -23,6 +24,11 @@ export default function ServicesPage() {
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-[var(--text-secondary)]">
             Diseñamos y desarrollamos soluciones digitales para negocios que necesitan orden, presencia web y procesos más ágiles.
             Cada servicio se adapta a tu operación y a lo que hoy te quita tiempo.
+          </p>
+          <p className="mt-4 text-sm font-bold text-[var(--primary)]">
+            <Link href="/diseno-web-venezuela" className="underline underline-offset-4 hover:text-[var(--emerald)]">
+              Diseño web en Venezuela: conoce planes y precios →
+            </Link>
           </p>
         </div>
       </Section>

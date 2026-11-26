@@ -1,3 +1,4 @@
+import MaterialIcon from '../../components/ui/MaterialIcon';
 import Link from 'next/link';
 import { createMetadata } from '../../lib/metadata';
 import { faqSchema } from '../../lib/structured-data';
@@ -88,6 +89,11 @@ export default function HomePage() {
             Creamos sistemas de inventario y ventas, software para clínicas odontológicas y agentes de IA en WhatsApp.
             Te ayudamos a organizar tu operación y a responder más rápido a tus clientes.
           </p>
+          <p className="mt-4 text-sm font-bold text-[var(--primary)]">
+            <Link href="/diseno-web-venezuela" className="underline underline-offset-4 hover:text-[var(--emerald)]">
+              Ver diseño web en Venezuela: planes y precios →
+            </Link>
+          </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <CTAButton ctaLocation="home_hero" pagePath="/">
               Cotizar por WhatsApp
@@ -133,9 +139,7 @@ export default function HomePage() {
               key={audience.title}
               className="rounded-3xl border border-[var(--surface-border)] bg-[var(--surface)] p-7"
             >
-              <span className="material-symbols-outlined mb-5 text-4xl text-[var(--primary)]" aria-hidden="true">
-                {audience.icon}
-              </span>
+              <MaterialIcon name={audience.icon} className="mb-5 text-4xl text-[var(--primary)]" />
               <h3 className="font-display text-xl font-bold text-[var(--text-primary)]">{audience.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">{audience.description}</p>
             </article>
@@ -194,7 +198,7 @@ export default function HomePage() {
           <ul className="space-y-4">
             {differentiators.map((item) => (
               <li key={item} className="flex gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
-                <span className="material-symbols-outlined text-[var(--emerald)]" aria-hidden="true">check_circle</span>
+                <MaterialIcon name="check_circle" className="text-[var(--emerald)]" />
                 <span className="text-sm leading-relaxed text-white/85">{item}</span>
               </li>
             ))}
